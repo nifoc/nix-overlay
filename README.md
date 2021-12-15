@@ -1,4 +1,4 @@
-# Personal [nixpkgs]**(https://github.com/NixOS/nixpkgs) Overlay
+# Personal [nixpkgs](https://github.com/NixOS/nixpkgs) Overlay
 
 ## Software
 
