@@ -1,5 +1,5 @@
-{ system, pkgs }:
+{ system, lib, pkgs }:
 
 {
-  cliclick = import ./packages/cliclick.nix { inherit system pkgs; };
+  cliclick = import ./packages/cliclick.nix { inherit system lib pkgs; };
 }

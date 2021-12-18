@@ -10,6 +10,7 @@
       ]
       (system: import ./packages.nix {
         inherit system;
+        inherit (nixpkgs) lib;
         pkgs = nixpkgs.legacyPackages.${system};
       });
 
