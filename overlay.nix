@@ -4,5 +4,6 @@ let custom = super.callPackage ./packages.nix { }; in
 
 {
   inherit custom;
-  cliclick = custom.cliclick;
+  inherit (custom) cliclick;
+  inherit (custom) proximity-sort;
 }
