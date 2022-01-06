@@ -6,7 +6,7 @@ pkgs.stdenv.mkDerivation {
 
   src = pkgs.fetchFromGitHub {
     owner = "BlueM";
-    repo = "cliclick";
+    repo = pname;
     rev = "79a49ff25f550fda5b2a1806366aa9d7facc46f3";
     sha256 = "Wj1niLXCwBYTsXB2Qkdvs85BJD7uRqGIerCTjhS20ZQ=";
     fetchSubmodules = false;
