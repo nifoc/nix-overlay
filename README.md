@@ -3,3 +3,4 @@
 ## Software
 
 * [cliclick](https://github.com/BlueM/cliclick)
+* [proximity-sort](https://github.com/jonhoo/proximity-sort)
