@@ -23,9 +23,17 @@ pkgs.stdenv.mkDerivation {
     IOKit
   ]);
 
+  dontStrip = true;
+
   installPhase = ''
     mkdir -p $out/bin
     cp cliclick $out/bin
+  '';
+
+  doInstallCheck = true;
+
+  installCheckPhase = ''
+    $out/bin/cliclick -V
   '';
 
   meta = with lib; {
