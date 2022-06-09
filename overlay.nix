@@ -7,4 +7,5 @@ let custom = super.callPackage ./packages.nix { }; in
   inherit (custom) cliclick;
   inherit (custom) phantomjs;
   inherit (custom) proximity-sort;
+  inherit (custom) q;
 }
