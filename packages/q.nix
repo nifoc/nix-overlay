@@ -13,6 +13,7 @@ pkgs.buildGoModule rec {
 
   vendorSha256 = "sha256-jBPCZ2vnI6gnRdnKkWzrh8mYwxp3Xfvyd28ZveAYZdc=";
 
+  ldflags = "-s -w -X main.version=release";
   doCheck = false;
 
   meta = with lib; {
