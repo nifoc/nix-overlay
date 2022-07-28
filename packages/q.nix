@@ -2,16 +2,16 @@
 
 pkgs.buildGoModule rec {
   pname = "q";
-  version = "0.8.0";
+  version = "0.8.1";
 
   src = pkgs.fetchFromGitHub {
     owner = "natesales";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-Fh91SeyXFTXQS1E0w0Lb98mm5gas3xjpo3rSzUGKK1E=";
+    sha256 = "sha256-hvmA5PTM9cgpzcIE6xBpsB3Lmw+U4Ehe105XFkgj5CE=";
   };
 
-  vendorSha256 = "sha256-jBPCZ2vnI6gnRdnKkWzrh8mYwxp3Xfvyd28ZveAYZdc=";
+  vendorSha256 = "sha256-x02i5FBHkAwlJIN4VbTAi5buSCNkEffGmKbLPJBXoBA=";
 
   ldflags = "-s -w -X main.version=release";
   doCheck = false;
