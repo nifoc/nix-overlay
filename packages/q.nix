@@ -20,6 +20,6 @@ pkgs.buildGoModule rec {
     description = "A tiny command line DNS client with support for UDP, TCP, DoT, DoH, DoQ and ODoH.";
     homepage = "https://github.com/natesales/q";
     license = [ licenses.gpl3Only ];
-    platforms = [ "x86_64-darwin" "aarch64-darwin" ];
+    platforms = [ "x86_64-darwin" "aarch64-darwin" "aarch64-linux" "x86_64-linux" ];
   };
 }
