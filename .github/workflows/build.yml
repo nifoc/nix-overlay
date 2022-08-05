@@ -19,7 +19,7 @@ jobs:
     - run: nix build '.#proximity-sort'
     - run: nix build '.#q'
 
-  x86_64-darwin:
+  build-x86_64-darwin:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3

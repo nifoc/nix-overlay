@@ -17,6 +17,6 @@ pkgs.rustPlatform.buildRustPackage rec {
     description = "Simple command-line utility for sorting inputs by proximity to a path argument";
     homepage = "https://github.com/jonhoo/proximity-sort";
     license = [ licenses.asl20 licenses.mit ];
-    platforms = [ "x86_64-darwin" "aarch64-darwin" ];
+    platforms = [ "x86_64-darwin" "aarch64-darwin" "aarch64-linux" "x86_64-linux" ];
   };
 }
