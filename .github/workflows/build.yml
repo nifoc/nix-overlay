@@ -3,6 +3,9 @@ name: Build
 on:
   push:
     branches: ['master']
+  schedule:
+    - cron: '10 8 * * *'
+  workflow_dispatch:
 
 jobs:
   build-x86_64-linux:
