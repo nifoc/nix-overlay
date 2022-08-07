@@ -8,6 +8,5 @@ in
   inherit (custom) cliclick;
   inherit (custom) fennel-luajit;
   inherit (custom) phantomjs;
-  inherit (custom) proximity-sort;
   inherit (custom) q;
 }
