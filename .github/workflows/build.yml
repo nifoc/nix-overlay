@@ -20,6 +20,7 @@ jobs:
         name: nifoc
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build '.#fennel-luajit'
+    - run: nix build '.#luarocks-jsregexp'
     - run: nix build '.#q'
 
   build-x86_64-darwin:
@@ -35,5 +36,6 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build '.#cliclick'
     - run: nix build '.#fennel-luajit'
+    - run: nix build '.#luarocks-jsregexp'
     - run: nix build '.#phantomjs'
     - run: nix build '.#q'
