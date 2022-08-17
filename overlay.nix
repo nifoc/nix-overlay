@@ -8,7 +8,6 @@ in
   inherit (custom) cliclick;
   inherit (custom) fennel-luajit;
   inherit (custom) luarocks-jsregexp;
-  inherit (custom) marksman;
   inherit (custom) phantomjs;
   inherit (custom) q;
 }
