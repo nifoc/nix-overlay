@@ -19,6 +19,7 @@ pkgs.stdenv.mkDerivation rec {
   };
 
   unpackPhase = ''
+    echo "$src is already the binary"
     true
   '';
 
