@@ -1,14 +1,14 @@
 { system, lib, pkgs }:
 
-pkgs.stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation rec {
   pname = "cliclick";
-  version = "5.0.1";
+  version = "5.1";
 
   src = pkgs.fetchFromGitHub {
     owner = "BlueM";
     repo = pname;
-    rev = "79a49ff25f550fda5b2a1806366aa9d7facc46f3";
-    sha256 = "Wj1niLXCwBYTsXB2Qkdvs85BJD7uRqGIerCTjhS20ZQ=";
+    rev = version;
+    sha256 = "sha256-8lWfeRPCF2zn9U79uZkhlj0izGSueTZuYpJx1LgsyfQ=";
     fetchSubmodules = false;
   };
 
