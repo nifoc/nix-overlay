@@ -2,14 +2,14 @@
 
 pkgs.lua51Packages.buildLuarocksPackage rec {
   pname = "jsregexp";
-  version = "0.0.4";
+  version = "0.0.5";
   rockspecFilename = "./${pname}-${version}-1.rockspec";
 
   src = pkgs.fetchFromGitHub {
     owner = "kmarius";
     repo = pname;
-    rev = "c5d9a0c5924937fe92f9cfcac3ccc1e798d164d7";
-    sha256 = "sha256-20GUkwoR71M5pCD4jFUPRbIoMYHzbg7W2rZxBy4SpP8=";
+    rev = "3f8942325ba720b4173e6370a47d5a0529da2efb";
+    sha256 = "sha256-WlPWp3iJRZH5CfQohD81qIrE1KRbBOZWvFUU7LjEkq0=";
   };
 
   meta = with lib; {
