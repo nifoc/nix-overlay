@@ -16,6 +16,11 @@ pkgs.stdenv.mkDerivation rec {
     lua
   ];
 
+  buildPhase = ''
+    patchShebangs fennel
+    make
+  '';
+
   dontStrip = true;
 
   installPhase = ''
