@@ -22,6 +22,7 @@ jobs:
     - run: nix build '.#fennel-ls'
     - run: nix build '.#luarocks-jsregexp'
     - run: nix build '.#q'
+    - run: nix build '.#website-docs-nifoc-pw'
 
   build-x86_64-darwin:
     runs-on: macos-latest

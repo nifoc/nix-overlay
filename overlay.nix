@@ -10,4 +10,5 @@ in
   inherit (custom) luarocks-jsregexp;
   inherit (custom) phantomjs;
   inherit (custom) q;
+  inherit (custom) website-docs-nifoc-pw;
 }
