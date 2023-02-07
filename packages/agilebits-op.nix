@@ -2,11 +2,11 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "agilebits-op";
-  version = "2.7.3";
+  version = "2.13.1";
 
   src = pkgs.fetchurl {
     url = "https://cache.agilebits.com/dist/1P/op2/pkg/v${version}/op_apple_universal_v${version}.pkg";
-    sha256 = "sha256-6qrNgb5ae+qqlNsNDLbKNeWj0o/SRs+2G/4DfK5Wnhg=";
+    sha256 = "sha256-Mag2UG5IhikxV0aA/OhA9Aauuytx9shUKlrGhXMjqTM=";
   };
 
   buildInputs = with pkgs; [ xar cpio ];
