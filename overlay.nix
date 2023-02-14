@@ -8,6 +8,7 @@ in
   inherit (custom) cliclick;
   inherit (custom) fennel-ls;
   inherit (custom) luarocks-jsregexp;
+  inherit (custom) nitter-unstable;
   inherit (custom) phantomjs;
   inherit (custom) q;
   inherit (custom) website-docs-nifoc-pw;
