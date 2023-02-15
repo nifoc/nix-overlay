@@ -5,6 +5,7 @@ let
 in
 {
   inherit (custom) agilebits-op;
+  inherit (custom) anonymous-overflow;
   inherit (custom) cliclick;
   inherit (custom) fennel-ls;
   inherit (custom) luarocks-jsregexp;
