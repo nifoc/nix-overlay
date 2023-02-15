@@ -13,6 +13,12 @@ pkgs.buildGoModule rec {
 
   vendorSha256 = "sha256-CAEGKBNqVnNJn8vP8yR93WKFNu/WLn9+kYinQQtiAYE=";
 
+  postInstall = ''
+    mkdir -p $out/share/anonymous-overflow
+    cp -r public $out/share/anonymous-overflow/public
+    cp -r templates $out/share/anonymous-overflow/templates
+  '';
+
   meta = with lib; {
     description = "View StackOverflow in privacy and without the clutter.";
     homepage = "https://github.com/httpjamesm/AnonymousOverflow";
