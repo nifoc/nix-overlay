@@ -13,4 +13,5 @@ in
   inherit (custom) phantomjs;
   inherit (custom) q;
   inherit (custom) website-docs-nifoc-pw;
+  inherit (custom) wezterm-unstable;
 }
