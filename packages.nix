@@ -10,5 +10,4 @@
   phantomjs = import ./packages/phantomjs.nix { inherit system lib pkgs; };
   q = import ./packages/q.nix { inherit system lib pkgs; };
   website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit system lib pkgs; };
-  wezterm-unstable = import ./packages/wezterm-unstable.nix { inherit system lib pkgs; };
 }
