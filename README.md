@@ -10,3 +10,4 @@
 * [nitter](https://github.com/zedeus/nitter)
 * [phantomjs](https://github.com/ariya/phantomjs)
 * [q](https://github.com/natesales/q)
+* [rimgo](https://codeberg.org/video-prize-ranch/rimgo)

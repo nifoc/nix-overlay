@@ -24,6 +24,7 @@ jobs:
     - run: nix build '.#luarocks-jsregexp'
     - run: nix build '.#nitter-unstable'
     - run: nix build '.#q'
+    - run: nix build '.#rimgo'
     - run: nix build '.#website-docs-nifoc-pw'
 
   build-x86_64-darwin:

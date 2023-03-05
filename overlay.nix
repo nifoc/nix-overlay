@@ -12,5 +12,6 @@ in
   inherit (custom) nitter-unstable;
   inherit (custom) phantomjs;
   inherit (custom) q;
+  inherit (custom) rimgo;
   inherit (custom) website-docs-nifoc-pw;
 }

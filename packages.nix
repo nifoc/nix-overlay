@@ -9,5 +9,6 @@
   nitter-unstable = import ./packages/nitter-unstable.nix { inherit system lib pkgs; };
   phantomjs = import ./packages/phantomjs.nix { inherit system lib pkgs; };
   q = import ./packages/q.nix { inherit system lib pkgs; };
+  rimgo = import ./packages/rimgo.nix { inherit system lib pkgs; };
   website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit system lib pkgs; };
 }
