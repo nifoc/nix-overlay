@@ -2,17 +2,17 @@
 
 pkgs.buildGoModule rec {
   pname = "rimgo";
-  version = "2023-02-25";
+  version = "2023-03-08";
 
   src = pkgs.fetchFromGitea {
     domain = "codeberg.org";
     owner = "video-prize-ranch";
     repo = pname;
-    rev = "c6a9ca3443e5ab9b9794c99cd349112c926462a1";
-    hash = "sha256-vHOITcSrGNz+1lw+9RIBssi0RjqOTpVb7Z+Yvj3AD0I=";
+    rev = "30f5fdcbf29cfa86c439c759078697cb295eaf4d";
+    hash = "sha256-JaMTgCAQutjGe2t5uGMi84ocVrlFOPh3iFqm4a8Tkv4=";
   };
 
-  vendorSha256 = "sha256-T2zcQB9jOldnB+0rYsTSAhjrL77Hk+oHpKecS7h2U2c=";
+  vendorSha256 = "sha256-7oArN4V8gvDZJJ/1A9kVz/d/U9Nd69duH+oUSX7TgE0=";
 
   meta = with lib; {
     description = "An alternative frontend for Imgur.";
