@@ -8,7 +8,7 @@ pkgs.buildGoModule rec {
     owner = "httpjamesm";
     repo = "AnonymousOverflow";
     rev = "v${version}";
-    sha256 = "sha256-JCb2+x91o2daAf2FbuMGVgZpv2za4zlSk55xMN2oFMk=";
+    sha256 = "sha256-5FL3Latgd8LsfdA5ddwk8BbTRd00+y1D2I0wxTYu7v4=";
   };
 
   vendorSha256 = "sha256-CAEGKBNqVnNJn8vP8yR93WKFNu/WLn9+kYinQQtiAYE=";
