@@ -8,7 +8,7 @@ pkgs.buildGoModule rec {
     owner = "natesales";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-dJ+0AvqtlzaKsHd1brmQZ71Oryf6TU1SwACwQyaQrrY=";
+    sha256 = "sha256-kS3t4bAvxFoZBE5UMM5yJ0WbsN6MqkEYhkl8wiBJKQg=";
   };
 
   vendorSha256 = "sha256-jjhDD0qZh4QHjFO14+FsRFxEywByHB2gIxy/w3QOWBk=";
