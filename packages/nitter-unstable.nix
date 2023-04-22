@@ -1,14 +1,26 @@
 { system, lib, pkgs }:
 
+let
+  nimPackages = pkgs.nimPackages;
+
+  karax-pkg = pkgs.fetchFromGitHub {
+    owner = "karaxnim";
+    repo = "karax";
+    rev = "5cf360c";
+    sha256 = "sha256-TPwQSqi7ciR6QMklWi/bOJnyzCAT1lZyxW4DTiWTALo=";
+  };
+in
 pkgs.nitter.overrideAttrs (
-  _: {
-    version = "unstable-2023-03-06";
+  oa: {
+    version = "unstable-2023-04-21";
 
     src = pkgs.fetchFromGitHub {
       owner = "zedeus";
       repo = "nitter";
-      rev = "2254a0728c587ebcec51ff08da0bf145606a629e";
-      hash = "sha256-d4KYBCcYbfvEtOqa1umcXmYsBRvhLgpHVoCUfY0XdXI=";
+      rev = "bc219aa792cc0e4117888b2036a969559f4f2689";
+      hash = "sha256-xP4b0sRa+AY3658NDlAiyc11QAKI7RbvlUsd3rR0Yyo=";
     };
+
+    buildInputs = (lib.lists.remove nimPackages.karax oa.buildInputs) ++ [ karax-pkg ];
   }
 )
