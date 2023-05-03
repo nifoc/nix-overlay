@@ -10,4 +10,6 @@
   q = import ./packages/q.nix { inherit system lib pkgs; };
   rimgo = import ./packages/rimgo.nix { inherit system lib pkgs; };
   website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit system lib pkgs; };
+
+  liblpeg-darwin = import ./packages/liblpeg-darwin.nix { inherit system lib pkgs; };
 }
