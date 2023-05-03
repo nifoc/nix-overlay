@@ -13,4 +13,6 @@ in
   inherit (custom) q;
   inherit (custom) rimgo;
   inherit (custom) website-docs-nifoc-pw;
+
+  inherit (custom) liblpeg-darwin;
 }
