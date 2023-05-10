@@ -1,4 +1,4 @@
-{ system, lib, pkgs }:
+{ pkgs, lib }:
 
 pkgs.buildGoModule rec {
   pname = "anonymous-overflow";

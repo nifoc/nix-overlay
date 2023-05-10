@@ -1,6 +1,6 @@
-{ system, lib, pkgs }:
+{ pkgs }:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "website-docs-nifoc-pw";
   version = "2021-08-30";
 

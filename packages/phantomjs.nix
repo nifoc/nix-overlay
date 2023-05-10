@@ -1,4 +1,4 @@
-{ system, lib, pkgs }:
+{ pkgs, lib }:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "phantomjs";

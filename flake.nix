@@ -3,31 +3,55 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     neovim-flake = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
-    packages = nixpkgs.lib.genAttrs
-      [
+  outputs = inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
         "aarch64-darwin"
         "x86_64-darwin"
-        "aarch64-linux"
         "x86_64-linux"
-      ]
-      (system: import ./packages.nix {
-        inherit system;
-        inherit (nixpkgs) lib;
+        "aarch64-linux"
+      ];
 
-        pkgs = nixpkgs.legacyPackages.${system};
+      imports = [
+        flake-parts.flakeModules.easyOverlay
+      ];
 
-        otherPkgs = {
-          neovim = inputs.neovim-flake.packages.${system};
-        };
-      });
+      perSystem = { inputs', system, config, pkgs, lib, ... }: {
+        packages =
+          let
+            darwinPackages =
+              if lib.hasSuffix "darwin" system then rec {
+                agilebits-op = import ./packages/agilebits-op.nix { inherit pkgs lib; };
+                cliclick = import ./packages/cliclick.nix { inherit pkgs lib; };
+                liblpeg = import ./packages/liblpeg-darwin.nix { inherit pkgs; };
+                neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit liblpeg lib; };
+                phantomjs = import ./packages/phantomjs.nix { inherit pkgs lib; };
+              } else {
+                neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit lib; };
+              };
+          in
+          {
+            anonymous-overflow = import ./packages/anonymous-overflow.nix { inherit pkgs lib; };
+            fennel-ls = import ./packages/fennel-ls.nix { inherit pkgs lib; };
+            nitter-unstable = import ./packages/nitter-unstable.nix { inherit pkgs lib; };
+            q = import ./packages/q.nix { inherit pkgs lib; };
+            rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
+            website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit pkgs; };
+          } // darwinPackages;
 
-    overlay = import ./overlay.nix;
-  };
+        overlayAttrs = config.packages;
+      };
+
+      flake = {
+        overlay = inputs.self.overlays.default;
+      };
+    };
 }

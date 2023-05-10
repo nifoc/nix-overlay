@@ -27,24 +27,6 @@ jobs:
     - run: nix build '.#rimgo'
     - run: nix build '.#website-docs-nifoc-pw'
 
-  build-x86_64-darwin:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: cachix/install-nix-action@v20
-      with:
-        nix_path: nixpkgs=channel:nixpkgs-unstable
-    - uses: cachix/cachix-action@v12
-      with:
-        name: nifoc
-        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix build '.#cliclick'
-    - run: nix build '.#fennel-ls'
-    - run: nix build '.#liblpeg-darwin'
-    - run: nix build '.#neovim-nightly'
-    - run: nix build '.#phantomjs'
-    - run: nix build '.#q'
-
   build-arm64-linux:
     runs-on: buildjet-2vcpu-ubuntu-2204-arm
     steps:

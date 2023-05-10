@@ -1,4 +1,4 @@
-{ system, lib, pkgs }:
+{ pkgs, lib }:
 
 let
   nimPackages = pkgs.nimPackages;

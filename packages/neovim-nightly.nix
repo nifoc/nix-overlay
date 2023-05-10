@@ -1,12 +1,8 @@
-{ pkgs, otherPkgs, lib, liblpeg-darwin, ... }:
+{ neovim, liblpeg ? null, lib, ... }:
 
-let
-  inherit (pkgs.stdenv) isDarwin;
-  inherit (lib) optionals;
-in
-otherPkgs.neovim.neovim.overrideAttrs (oa: {
-  nativeBuildInputs = oa.nativeBuildInputs ++ optionals isDarwin [
-    liblpeg-darwin
+neovim.overrideAttrs (oa: {
+  nativeBuildInputs = oa.nativeBuildInputs ++ lib.optionals (liblpeg != null) [
+    liblpeg
   ];
 
   patches = builtins.filter
