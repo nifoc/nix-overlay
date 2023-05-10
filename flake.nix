@@ -1,8 +1,15 @@
 {
   description = "Collection of (useful) tools";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-  outputs = { self, nixpkgs }: {
+    neovim-flake = {
+      url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = inputs@{ self, nixpkgs, ... }: {
     packages = nixpkgs.lib.genAttrs
       [
         "aarch64-darwin"
@@ -13,7 +20,12 @@
       (system: import ./packages.nix {
         inherit system;
         inherit (nixpkgs) lib;
+
         pkgs = nixpkgs.legacyPackages.${system};
+
+        otherPkgs = {
+          neovim = inputs.neovim-flake.packages.${system};
+        };
       });
 
     overlay = import ./overlay.nix;

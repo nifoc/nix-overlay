@@ -15,4 +15,5 @@ in
   inherit (custom) website-docs-nifoc-pw;
 
   inherit (custom) liblpeg-darwin;
+  inherit (custom) neovim-nightly;
 }
