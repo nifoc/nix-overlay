@@ -2,13 +2,13 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "fennel-ls";
-  version = "2023-02-14";
+  version = "2023-05-05";
 
   src = pkgs.fetchFromSourcehut {
     owner = "~xerool";
     repo = pname;
-    rev = "main";
-    hash = "sha256-S/TDZcGvI2LgK7gjMWGr/yNK+9TDJhxCDR2Jja5jscU=";
+    rev = "8c33a46d6d6d7d1ba63aca82e6b29e35ff81be34";
+    sha256 = "sha256-zcqMoto/jHtilUQjJdt0yxoe8tAFwO7bPQpEF7zKXrg=";
     fetchSubmodules = false;
   };
 
