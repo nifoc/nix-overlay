@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "bdfr-browser-flake": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1684361635,
+        "narHash": "sha256-BlGsSDE0P2mcp4OThzCzpgM6FN3wON6cdYBfI7YdNtk=",
+        "owner": "nifoc",
+        "repo": "bdfr-browser",
+        "rev": "e03c759bb78571a4d8b0bf3da763660a1ece3038",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nifoc",
+        "repo": "bdfr-browser",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -42,11 +65,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1684251707,
-        "narHash": "sha256-ldXse+DvrDJnlnCJK2e8+RM5ftvk71u2E1aMeY3o/Fc=",
+        "lastModified": 1684328787,
+        "narHash": "sha256-JMoFnoATPhHKgJT4p/z5lcX5x0+f35+MRkCLz8tWhz0=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "6b19170d44ca56cf65542ee184d2bc89c6d622a9",
+        "rev": "c9f47fca8b896ecb304294cce675fedac9ab926c",
         "type": "github"
       },
       "original": {
@@ -92,6 +115,7 @@
     },
     "root": {
       "inputs": {
+        "bdfr-browser-flake": "bdfr-browser-flake",
         "flake-parts": "flake-parts",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs"

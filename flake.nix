@@ -9,6 +9,12 @@
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    bdfr-browser-flake = {
+      url = "github:nifoc/bdfr-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
@@ -44,6 +50,8 @@
             nitter-unstable = import ./packages/nitter-unstable.nix { inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
             rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
+
+            bdfr-browser = inputs'.bdfr-browser-flake.packages.default;
             website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit pkgs; };
           } // darwinPackages;
 
