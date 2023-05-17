@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1684361635,
-        "narHash": "sha256-BlGsSDE0P2mcp4OThzCzpgM6FN3wON6cdYBfI7YdNtk=",
+        "lastModified": 1684364210,
+        "narHash": "sha256-rFlUtjv54tjlLWfXNVnFQCks5AQc/XlJgGYpiy+PE5E=",
         "owner": "nifoc",
         "repo": "bdfr-browser",
-        "rev": "e03c759bb78571a4d8b0bf3da763660a1ece3038",
+        "rev": "b7ee6159e80db0474767a2e88eeb0c00588ca9c3",
         "type": "github"
       },
       "original": {
