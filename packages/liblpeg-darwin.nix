@@ -10,7 +10,6 @@ pkgs.stdenv.mkDerivation {
   patches = [ ../patches/liblpeg-makefile.patch ];
 
   installPhase = ''
-    mkdir -p $out/lib
     install -D lpeg.dylib $out/lib/lpeg.dylib
   '';
 
