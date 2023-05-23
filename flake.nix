@@ -50,6 +50,7 @@
             nitter-unstable = import ./packages/nitter-unstable.nix { inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
             rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
+            vuetorrent = import ./packages/vuetorrent.nix { inherit pkgs lib; };
 
             bdfr-browser = inputs'.bdfr-browser-flake.packages.default;
             website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit pkgs; };

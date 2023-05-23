@@ -10,3 +10,4 @@
 * [phantomjs](https://github.com/ariya/phantomjs)
 * [q](https://github.com/natesales/q)
 * [rimgo](https://codeberg.org/video-prize-ranch/rimgo)
+* [VueTorrent](https://github.com/WDaan/VueTorrent)
