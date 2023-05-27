@@ -12,13 +12,13 @@ let
 in
 pkgs.nitter.overrideAttrs (
   oa: {
-    version = "unstable-2023-04-21";
+    version = "unstable-2023-05-20";
 
     src = pkgs.fetchFromGitHub {
       owner = "zedeus";
       repo = "nitter";
-      rev = "bc219aa792cc0e4117888b2036a969559f4f2689";
-      hash = "sha256-xP4b0sRa+AY3658NDlAiyc11QAKI7RbvlUsd3rR0Yyo=";
+      rev = "e3b3b38a2d43a83b5fc2239ab41e864ee686fb2f";
+      sha256 = "sha256-1BEZcrraPc9qOWLy3Bq8M8G5P4fUmb2IX+T+cStHpmQ=";
     };
 
     buildInputs = (lib.lists.remove nimPackages.karax oa.buildInputs) ++ [ karax-pkg ];
