@@ -15,6 +15,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
+
+    weewx-proxy-flake = {
+      url = "github:nifoc/weewx-proxy";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
@@ -53,6 +59,7 @@
             vuetorrent = import ./packages/vuetorrent.nix { inherit pkgs lib; };
 
             bdfr-browser = inputs'.bdfr-browser-flake.packages.default;
+            weewx-proxy = inputs'.weewx-proxy-flake.packages.default;
             website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit pkgs; };
           } // darwinPackages;
 

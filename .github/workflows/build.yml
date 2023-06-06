@@ -43,3 +43,4 @@ jobs:
     - run: nix build '.#fennel-ls'
     - run: nix build '.#neovim-nightly'
     - run: nix build '.#q'
+    - run: nix build '.#weewx-proxy'

@@ -65,11 +65,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1686021327,
-        "narHash": "sha256-nj0dGMA31R9oH31F30FJ2K3OFBuGMTMro5J/j8bh8Co=",
+        "lastModified": 1686061135,
+        "narHash": "sha256-vqmW7ASK+uX2BFxeKMVY02s7t+vG/+akf81ZL6Hlbms=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "780ab11b90119fb9b91d3266d6eef459228edc9a",
+        "rev": "175e5c8b96fe0756040fcb31f46d9c97b3957776",
         "type": "github"
       },
       "original": {
@@ -118,7 +118,31 @@
         "bdfr-browser-flake": "bdfr-browser-flake",
         "flake-parts": "flake-parts",
         "neovim-flake": "neovim-flake",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "weewx-proxy-flake": "weewx-proxy-flake"
+      }
+    },
+    "weewx-proxy-flake": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1686062494,
+        "narHash": "sha256-SgAHdVijmqmlEVs8Iz8rdWBhy2OY7zzQIaQeiDKvsL8=",
+        "owner": "nifoc",
+        "repo": "weewx-proxy",
+        "rev": "4837ac0fbf7f24796742b72fcd2cf0d2cabdc754",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nifoc",
+        "repo": "weewx-proxy",
+        "type": "github"
       }
     }
   },
