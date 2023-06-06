@@ -132,11 +132,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686078769,
-        "narHash": "sha256-VGkOi4wEAM5JKyNjSgA5+sJ6BUgu3A+9nY9VSW/xIkg=",
+        "lastModified": 1686080637,
+        "narHash": "sha256-qM6kb5cf9eC94KRdkfAaDhLYPjlRq525KtCP6TyIaok=",
         "owner": "nifoc",
         "repo": "weewx-proxy",
-        "rev": "5df6b01c2d18cd0dd7b8cf62ea84b8e36fc38b10",
+        "rev": "2c21daf3c42190fde7bda45d94f603fdd314ae44",
         "type": "github"
       },
       "original": {
