@@ -2,14 +2,14 @@
 
 pkgs.buildGoModule rec {
   pname = "rimgo";
-  version = "2023-06-19";
+  version = "2023-07-06";
 
   src = pkgs.fetchFromGitea {
     domain = "codeberg.org";
     owner = "video-prize-ranch";
     repo = pname;
-    rev = "64908fb75db8dd3a31aa7b5eaee3542528c2417d";
-    sha256 = "sha256-/61x+fWgia3/+SllCkZJTBhjK56+8q3b4tguspaiFqA=";
+    rev = "ed21e8293e5e69b0bd5b58e5a5f054893f30bc34";
+    sha256 = "sha256-jlBvguaCFf4EnQJL959/pEh2TlA/KTDvh/q9CSghIt4=";
   };
 
   vendorSha256 = "sha256-iZ5mCDcLHHAESPwYLYl2eSoJ7UASP3UwKKwCtIdokcs=";
