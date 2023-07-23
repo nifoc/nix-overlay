@@ -2,13 +2,13 @@
 
 pkgs.nitter.overrideAttrs (
   oa: {
-    version = "unstable-2023-07-14";
+    version = "unstable-2023-07-22";
 
     src = pkgs.fetchFromGitHub {
       owner = "zedeus";
       repo = "nitter";
-      rev = "f881226b223f1650f7f1621991baa38513ddb61f";
-      sha256 = "sha256-5QV17pV8VS/eB+SUpQZIlTS87iQ+rTbqMLHgFyn/AFk=";
+      rev = "72d8f35cd1ec1205824711a41dab4b8d7a6b298a";
+      sha256 = "04q371r487zm97nm0nxm0wydhdy0jd0n91w6ykl3wqax2q1z6a0j";
     };
   }
 )
