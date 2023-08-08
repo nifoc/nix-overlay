@@ -51,7 +51,7 @@ beamPackages.mixRelease rec {
     RELEASE_COOKIE=${pname}
     export RELEASE_COOKIE
 
-    exec -a "$0" "$out/bin/lexical-nocookie" "$@"
+    exec -a "$0" "$out/bin/lexical-nocookie" start "$@"
     EOF
     chmod +x "$out/bin/lexical"
 
