@@ -26,7 +26,7 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build '.#anonymous-overflow'
     - run: nix build '.#fennel-ls'
-    - run: nix build '.#lexical-ls'
+    - run: nix build '.#lexical'
     - run: nix build '.#nitter-unstable'
     - run: nix build '.#neovim-nightly'
     - run: nix build '.#q'
@@ -46,7 +46,7 @@ jobs:
         name: nifoc
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build '.#fennel-ls'
-    - run: nix build '.#lexical-ls'
+    - run: nix build '.#lexical'
     - run: nix build '.#neovim-nightly'
     - run: nix build '.#q'
     - run: nix build '.#weewx-proxy'
