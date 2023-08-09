@@ -53,7 +53,7 @@
           {
             anonymous-overflow = import ./packages/anonymous-overflow.nix { inherit pkgs lib; };
             fennel-ls = import ./packages/fennel-ls.nix { inherit pkgs lib; };
-            lexical-ls = import ./packages/lexical-ls.nix { inherit pkgs lib; };
+            lexical = import ./packages/lexical.nix { inherit pkgs lib; };
             nitter-unstable = import ./packages/nitter-unstable.nix { inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
             rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };

@@ -14,7 +14,7 @@ let
   };
 in
 beamPackages.mixRelease rec {
-  pname = "lexical-ls";
+  pname = "lexical";
   version = "0.2.2";
 
   src = pkgs.fetchFromGitHub {
@@ -32,29 +32,20 @@ beamPackages.mixRelease rec {
 
   NAMESPACE = "1";
 
-  configurePhase = ''
-    runHook preConfigure
-    mix deps.compile --no-deps-check
-    runHook postConfigure
-  '';
-
   installPhase = ''
     runHook preInstall
 
     mix release lexical --no-deps-check --path "$out"
     rm "$out/start_lexical.sh"
-    mv "$out/bin/lexical" "$out/bin/lexical-nocookie"
-
-    cat > "$out/bin/lexical" << EOF
-    #!${pkgs.bash}/bin/bash
-
-    RELEASE_COOKIE=${pname}
-    export RELEASE_COOKIE
-
-    exec -a "$0" "$out/bin/lexical-nocookie" start "$@"
-    EOF
-    chmod +x "$out/bin/lexical"
 
     runHook postInstall
+  '';
+
+  preFixup = ''
+    for script in $out/releases/*/elixir; do
+      substituteInPlace "$script" --replace 'ERL_EXEC="erl"' 'ERL_EXEC="${erlang}/bin/erl"'
+    done
+
+    wrapProgram $out/bin/lexical --set RELEASE_COOKIE lexical
   '';
 }
