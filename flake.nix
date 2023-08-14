@@ -46,6 +46,7 @@
                 liblpeg = import ./packages/liblpeg-darwin.nix { inherit pkgs; };
                 neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit liblpeg lib; };
                 phantomjs = import ./packages/phantomjs.nix { inherit pkgs lib; };
+                rexit = import ./packages/rexit.nix { inherit pkgs lib; };
               } else {
                 neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit lib; };
               };
