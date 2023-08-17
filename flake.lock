@@ -15,11 +15,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1692277700,
-        "narHash": "sha256-a9Nz8NbO28lMbDFwNwLpZqCUgXSWKUWJxBm+XLEn0+k=",
+        "lastModified": 1692278396,
+        "narHash": "sha256-H551Q1HLI5/ra/IR/iNnjpoNdoZArVjs+3sQyOvbWc4=",
         "owner": "nifoc",
         "repo": "bdfr-browser",
-        "rev": "478a32804247f0aecb36a822170fb37b0b7d10cd",
+        "rev": "852f69f690a36150aedd0a100d1ec43271fcde57",
         "type": "github"
       },
       "original": {
