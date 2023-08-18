@@ -2,7 +2,6 @@
 
 let
   inherit (pkgs.stdenv) isDarwin;
-  inherit (pkgs.stdenv) isLinux;
 in
 pkgs.rustPlatform.buildRustPackage {
   pname = "rexit";
@@ -19,14 +18,15 @@ pkgs.rustPlatform.buildRustPackage {
 
   buildInputs = with pkgs; [
     libiconv
+    openssl
+    pkg-config
   ] ++ lib.optionals isDarwin (with pkgs.darwin.apple_sdk.frameworks; [
     CoreFoundation
     CoreServices
     Security
-  ]) ++ lib.optionals isLinux (with pkgs; [
-    openssl
-    pkg-config
   ]);
+
+  PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
 
   doCheck = false;
 
