@@ -16,17 +16,16 @@ pkgs.rustPlatform.buildRustPackage {
 
   cargoSha256 = "sha256-HZJZ15bPV/CW6w2T5ALVsp2ngLU/5B0Vjn5n/kSatp4=";
 
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+
   buildInputs = with pkgs; [
     libiconv
     openssl
-    pkg-config
   ] ++ lib.optionals isDarwin (with pkgs.darwin.apple_sdk.frameworks; [
     CoreFoundation
     CoreServices
     Security
   ]);
-
-  PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
 
   doCheck = false;
 
