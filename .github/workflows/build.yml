@@ -31,6 +31,7 @@ jobs:
     - run: nix build '.#neovim-nightly'
     - run: nix build '.#q'
     - run: nix build '.#rimgo'
+    - run: nix build '.#rexit'
     - run: nix build '.#vuetorrent'
     - run: nix build '.#bdfr-browser'
     - run: nix build '.#website-docs-nifoc-pw'
