@@ -46,7 +46,6 @@
                 liblpeg = import ./packages/liblpeg-darwin.nix { inherit pkgs; };
                 neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit liblpeg lib; };
                 phantomjs = import ./packages/phantomjs.nix { inherit pkgs lib; };
-                rexit = import ./packages/rexit.nix { inherit pkgs lib; };
               } else {
                 neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit lib; };
               };
@@ -57,6 +56,7 @@
             lexical = import ./packages/lexical.nix { inherit pkgs lib; };
             nitter-unstable = import ./packages/nitter-unstable.nix { inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
+            rexit = import ./packages/rexit.nix { inherit pkgs lib; };
             rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
             vuetorrent = import ./packages/vuetorrent.nix { inherit pkgs lib; };
 
