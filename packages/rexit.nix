@@ -2,6 +2,7 @@
 
 let
   inherit (pkgs.stdenv) isDarwin;
+  inherit (pkgs.stdenv) isLinux;
 in
 pkgs.rustPlatform.buildRustPackage {
   pname = "rexit";
@@ -22,6 +23,9 @@ pkgs.rustPlatform.buildRustPackage {
     CoreFoundation
     CoreServices
     Security
+  ]) ++ lib.optionals isLinux (with pkgs; [
+    openssl
+    pkg-config
   ]);
 
   doCheck = false;
