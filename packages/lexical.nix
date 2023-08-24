@@ -1,7 +1,7 @@
 { pkgs, lib }:
 
 let
-  erlang = pkgs.beam.interpreters.erlangR25;
+  erlang = pkgs.beam.interpreters.erlangR26;
   beamPackagesPrev = pkgs.beam.packagesWith erlang;
   elixir = beamPackagesPrev.elixir_1_15;
 
@@ -15,13 +15,13 @@ let
 in
 beamPackages.mixRelease rec {
   pname = "lexical";
-  version = "0.2.2";
+  version = "0.3.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "lexical-lsp";
     repo = "lexical";
-    rev = "9f89426a38de8e90cbf352396641226f3a7a6c17";
-    sha256 = "sha256-t4a5mq5lUCU6uWgN0/hCCuPvyqVksUTjSu8Ajw+9tHA=";
+    rev = "v${version}";
+    sha256 = "sha256-iwa1EYaeKja9lOOZsO1588OfzlhPoa82u5+d2JZvmVU=";
   };
 
   mixFodDeps = beamPackages.fetchMixDeps {
@@ -35,8 +35,7 @@ beamPackages.mixRelease rec {
   installPhase = ''
     runHook preInstall
 
-    mix release lexical --no-deps-check --path "$out"
-    rm "$out/start_lexical.sh"
+    mix do compile --no-deps-check, package --path "$out"
 
     runHook postInstall
   '';
@@ -46,6 +45,6 @@ beamPackages.mixRelease rec {
       substituteInPlace "$script" --replace 'ERL_EXEC="erl"' 'ERL_EXEC="${erlang}/bin/erl"'
     done
 
-    wrapProgram $out/bin/lexical --set RELEASE_COOKIE lexical
+    makeWrapper $out/bin/start_lexical.sh $out/bin/lexical --set RELEASE_COOKIE lexical
   '';
 }
