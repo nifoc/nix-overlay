@@ -5,16 +5,16 @@ let
 in
 pkgs.rustPlatform.buildRustPackage {
   pname = "rexit";
-  version = "1.2.0";
+  version = "1.3.0-unstable";
 
   src = pkgs.fetchFromGitHub {
-    owner = "nifoc";
+    owner = "MPult";
     repo = "Rexit";
-    rev = "a2c8979a9755e609adb618c6a10d740e73adff74";
-    sha256 = "sha256-6EiSwviHpmqBljTA3nqRIavpk7NbyMktUhxkpN7efq4="; 
+    rev = "4d0bbc84f21113d0741d8bee813e4437aded44ca";
+    sha256 = "sha256-isPrJ0BizVA03E57iJzlWiJhHNRfyaYkw4BupDtpvao="; 
   };
 
-  cargoSha256 = "sha256-HZJZ15bPV/CW6w2T5ALVsp2ngLU/5B0Vjn5n/kSatp4=";
+  cargoSha256 = "sha256-5NYzCYm8Aq7/aP1oEdE0dWssaxFPb6IOBQMol1F3heg=";
 
   nativeBuildInputs = with pkgs; [ pkg-config ];
 
