@@ -15,11 +15,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1692916224,
-        "narHash": "sha256-pRoCy53TlQJTaE76FQ9M9krdxu32eJMmI4f3MRFLrY4=",
+        "lastModified": 1693342000,
+        "narHash": "sha256-ZKQe3CYv3+VS3xqTwnI7BHEsYMmhN91D388JPV42Tc0=",
         "owner": "nifoc",
         "repo": "bdfr-browser",
-        "rev": "f23b6904c98cad9b0989dadfdbf0a78faaf23828",
+        "rev": "be98b4b1c826cac94041535746e637175ef4db05",
         "type": "github"
       },
       "original": {
@@ -213,11 +213,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1693296184,
-        "narHash": "sha256-xJ/TX6qlZJBApooDCTmm+xvBLflk9zZYC/5RIN3l5CQ=",
+        "lastModified": 1693323247,
+        "narHash": "sha256-QaLzYaZeoVhJDOWCvfCDV2VOw3vVE3nUUShllYSl8f0=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "97badc9ac41e0c90d6e4a4389c3b7c022a5dfb88",
+        "rev": "97cfee39ee7bf333352975f917e660965609e8cc",
         "type": "github"
       },
       "original": {
