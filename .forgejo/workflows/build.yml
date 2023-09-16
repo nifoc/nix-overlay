@@ -1,0 +1,60 @@
+name: Build
+
+on:
+  push:
+    branches: ['master']
+  schedule:
+    - cron: '20 2 * * *'
+
+jobs:
+  build-amd64-linux:
+    runs-on: ubuntu-latest-amd64
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Nix
+      uses: https://github.com/DeterminateSystems/nix-installer-action@v4
+      with:
+        init: none
+        planner: linux
+        github-token: null
+    - name: Setup Attic
+      uses: https://github.com/ryanccn/attic-action@v0
+      with:
+        endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+        cache: ${{ secrets.ATTIC_CACHE }}
+        token: ${{ secrets.ATTIC_TOKEN }}
+    - run: nix build '.#anonymous-overflow'
+    - run: nix build '.#fennel-ls'
+    - run: nix build '.#lexical'
+    - run: nix build '.#nitter-unstable'
+    - run: nix build '.#neovim-nightly'
+    - run: nix build '.#q'
+    - run: nix build '.#rimgo'
+    - run: nix build '.#rexit'
+    - run: nix build '.#vuetorrent'
+    - run: nix build '.#bdfr-browser'
+    - run: nix build '.#website-docs-nifoc-pw'
+
+  build-arm64-linux:
+    runs-on: ubuntu-latest-arm64
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Nix
+      uses: https://github.com/DeterminateSystems/nix-installer-action@v4
+      with:
+        init: none
+        planner: linux
+        github-token: null
+    - name: Setup Attic
+      uses: https://github.com/ryanccn/attic-action@v0
+      with:
+        endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+        cache: ${{ secrets.ATTIC_CACHE }}
+        token: ${{ secrets.ATTIC_TOKEN }}
+    - run: nix build '.#fennel-ls'
+    - run: nix build '.#lexical'
+    - run: nix build '.#neovim-nightly'
+    - run: nix build '.#q'
+    - run: nix build '.#weewx-proxy'

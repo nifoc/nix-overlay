@@ -1,0 +1,26 @@
+name: Update Flake
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-flake:
+    runs-on: ubuntu-latest-amd64
+
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Nix
+      uses: https://github.com/DeterminateSystems/nix-installer-action@v4
+      with:
+        init: none
+        planner: linux
+        github-token: null
+    - run: nix flake update
+    - uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "[automation] Update flake"
