@@ -26,6 +26,7 @@ jobs:
         token: ${{ secrets.ATTIC_TOKEN }}
     - run: nix build '.#anonymous-overflow'
     - run: nix build '.#fennel-ls'
+    - run: nix build '.#headscale-ui'
     - run: nix build '.#lexical'
     - run: nix build '.#nitter-unstable'
     - run: nix build '.#neovim-nightly'
