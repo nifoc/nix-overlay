@@ -2,18 +2,18 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "fennel-ls";
-  version = "2023-07-20";
+  version = "2023-09-18";
 
   src = pkgs.fetchFromSourcehut {
     owner = "~xerool";
     repo = pname;
-    rev = "e7c642e12a15c6d452559414ee1890b30f4e8406";
-    sha256 = "00afmrkd7hszh91axva6vgp15jxsgvfazgign26r8b48cwdf1x64";
+    rev = "824525573a6299c232a0b910a960bd59a563904f";
+    sha256 = "sha256-qgHPXfIiIMw/hXkINgqv/OJb81TheiBBktuqrpJ+Z6s=";
     fetchSubmodules = false;
   };
 
   buildInputs = with pkgs; [
-    lua
+    luajit
   ];
 
   buildPhase = ''

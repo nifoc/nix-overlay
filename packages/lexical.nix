@@ -15,13 +15,13 @@ let
 in
 beamPackages.mixRelease rec {
   pname = "lexical";
-  version = "0.3.0";
+  version = "0.3.3";
 
   src = pkgs.fetchFromGitHub {
     owner = "lexical-lsp";
     repo = "lexical";
     rev = "v${version}";
-    sha256 = "sha256-iwa1EYaeKja9lOOZsO1588OfzlhPoa82u5+d2JZvmVU=";
+    sha256 = "sha256-yN5OVQFuxSDWxfgNuZJEYFO3208Ui93qbREylCoSGQs=";
   };
 
   mixFodDeps = beamPackages.fetchMixDeps {
