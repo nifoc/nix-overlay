@@ -45,11 +45,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1695376565,
-        "narHash": "sha256-q0g7lGEb+BmpyQ17Df2pbCxuYKT+RqufUJEXYmA5kwI=",
+        "lastModified": 1695496686,
+        "narHash": "sha256-y4Zcf+3L/52uarOpIrqskl/AczeeILxep4/RG/zS4f0=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "b7763d7f6b7fdcabe06658c664457df8bc147563",
+        "rev": "01be28b370987447c78f313a65fdc289d79d4d8a",
         "type": "github"
       },
       "original": {
@@ -61,16 +61,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1695132891,
-        "narHash": "sha256-cJR9AFHmt816cW/C9necLJyOg/gsnkvEeFAfxgeM1hc=",
-        "owner": "NixOS",
+        "lastModified": 1695145219,
+        "narHash": "sha256-Eoe9IHbvmo5wEDeJXKFOpKUwxYJIOxKUesounVccNYk=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8b5ab8341e33322e5b66fb46ce23d724050f6606",
+        "rev": "5ba549eafcf3e33405e5f66decd1a72356632b96",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
