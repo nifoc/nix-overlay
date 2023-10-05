@@ -1,7 +1,7 @@
 {
   description = "Collection of (useful) tools";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
@@ -31,18 +31,15 @@
               if lib.hasSuffix "darwin" system then rec {
                 agilebits-op = import ./packages/agilebits-op.nix { inherit pkgs lib; };
                 cliclick = import ./packages/cliclick.nix { inherit pkgs lib; };
-                liblpeg = import ./packages/liblpeg-darwin.nix { inherit pkgs; };
-                neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit liblpeg lib; };
                 phantomjs = import ./packages/phantomjs.nix { inherit pkgs lib; };
-              } else {
-                neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit lib; };
-              };
+              } else { };
           in
           {
             anonymous-overflow = import ./packages/anonymous-overflow.nix { inherit pkgs lib; };
             fennel-ls = import ./packages/fennel-ls.nix { inherit pkgs lib; };
             headscale-ui = import ./packages/headscale-ui.nix { inherit pkgs lib; };
             lexical = import ./packages/lexical.nix { inherit pkgs lib; };
+            neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit lib; };
             nitter-unstable = import ./packages/nitter-unstable.nix { inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
             rexit = import ./packages/rexit.nix { inherit pkgs lib; };
