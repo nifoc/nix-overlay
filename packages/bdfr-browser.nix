@@ -20,8 +20,8 @@ beamPackages.mixRelease rec {
     domain = "git.kempkens.io";
     owner = "daniel";
     repo = pname;
-    rev = "d40db4ca4c5c4a5f77921ee74f8a5364e3d82282";
-    hash = "sha256-f/I/PRGNRdy13F/LpwEw8JPubtLFmB94+Vlt3r2Ylkw=";
+    rev = "96b430ef2e49a384dd30f006df5df2b794a5626f";
+    hash = "sha256-J0n3sG6Fo+tZgKdiHQq1ZfDo5w1QBAU8d8sOdcoB2wg=";
   };
 
   mixNixDeps = import "${src}/mix.nix" { inherit lib beamPackages; };
