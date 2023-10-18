@@ -25,4 +25,11 @@ beamPackages.mixRelease rec {
   };
 
   mixNixDeps = import "${src}/mix.nix" { inherit lib beamPackages; };
+
+  meta = with lib; {
+    description = "Bulk Downloader for Reddit Web UI";
+    homepage = "https://git.kempkens.io/daniel/bdfr-browser";
+    license = [ licenses.isc ];
+    platforms = [ "x86_64-darwin" "aarch64-darwin" "aarch64-linux" "x86_64-linux" ];
+  };
 }
