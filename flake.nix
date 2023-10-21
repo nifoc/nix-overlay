@@ -48,7 +48,6 @@
 
             bdfr-browser = import ./packages/bdfr-browser.nix { inherit pkgs lib; };
             weewx-proxy = import ./packages/weewx-proxy.nix { inherit pkgs lib; };
-            website-docs-nifoc-pw = import ./packages/website-docs-nifoc-pw.nix { inherit pkgs; };
           } // darwinPackages;
 
         overlayAttrs = config.packages;

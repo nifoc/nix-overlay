@@ -35,7 +35,6 @@ jobs:
     - run: nix build '.#rexit'
     - run: nix build '.#vuetorrent'
     - run: nix build '.#bdfr-browser'
-    - run: nix build '.#website-docs-nifoc-pw'
 
   build-arm64-linux:
     runs-on: ubuntu-latest-arm64
