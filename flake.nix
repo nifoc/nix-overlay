@@ -36,6 +36,7 @@
           in
           {
             anonymous-overflow = import ./packages/anonymous-overflow.nix { inherit pkgs lib; };
+            bulk-downloader-for-reddit = import ./packages/bulk-downloader-for-reddit.nix { inherit pkgs lib; };
             fennel-ls = import ./packages/fennel-ls.nix { inherit pkgs lib; };
             headscale-ui = import ./packages/headscale-ui.nix { inherit pkgs lib; };
             lexical = import ./packages/lexical.nix { inherit pkgs lib; };
@@ -46,7 +47,6 @@
             rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
             vuetorrent = import ./packages/vuetorrent.nix { inherit pkgs lib; };
 
-            bdfr-browser = import ./packages/bdfr-browser.nix { inherit pkgs lib; };
             weewx-proxy = import ./packages/weewx-proxy.nix { inherit pkgs lib; };
           } // darwinPackages;
 

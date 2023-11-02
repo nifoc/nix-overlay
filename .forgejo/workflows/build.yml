@@ -25,6 +25,7 @@ jobs:
         cache: ${{ secrets.ATTIC_CACHE }}
         token: ${{ secrets.ATTIC_TOKEN }}
     - run: nix build '.#anonymous-overflow'
+    - run: nix build '.#bulk-downloader-for-reddit'
     - run: nix build '.#fennel-ls'
     - run: nix build '.#headscale-ui'
     - run: nix build '.#lexical'
@@ -34,7 +35,6 @@ jobs:
     - run: nix build '.#rimgo'
     - run: nix build '.#rexit'
     - run: nix build '.#vuetorrent'
-    - run: nix build '.#bdfr-browser'
 
   build-arm64-linux:
     runs-on: ubuntu-latest-arm64
