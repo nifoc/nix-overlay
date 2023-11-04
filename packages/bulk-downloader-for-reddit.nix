@@ -27,5 +27,7 @@ pkgs.python3.pkgs.buildPythonApplication rec {
     pyyaml
     requests
     yt-dlp
+
+    pkgs.ffmpeg-headless
   ];
 }
