@@ -5,8 +5,8 @@ let
   version = "0.3.3";
 
     src = pkgs.fetchurl {
-      url = "https://github.com/neovim/deps/raw/12c9dcf1d823ac4acbccf494c93c4774a87db11d/opt/libvterm-${version}.tar.gz";
-      sha256 = "09156f43dd2128bd347cbeebe50d9a571d32c64e0cf18d211197946aff7226e0";
+      url = "https://github.com/neovim/libvterm/archive/v${version}.tar.gz";
+      sha256 = "0babe3ab42c354925dadede90d352f054aa9c4ae6842ea803a20c9741e172e56";
     };
   });
 in
