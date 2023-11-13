@@ -45,6 +45,7 @@ beamPackages.mixRelease rec {
       substituteInPlace "$script" --replace 'ERL_EXEC="erl"' 'ERL_EXEC="${erlang}/bin/erl"'
     done
 
+    substituteInPlace $out/bin/start_lexical.sh --replace '! . "$script_dir"/activate_version_manager.sh' 'false'
     makeWrapper $out/bin/start_lexical.sh $out/bin/lexical --set RELEASE_COOKIE lexical
   '';
 }
