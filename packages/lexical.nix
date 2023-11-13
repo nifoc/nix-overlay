@@ -46,6 +46,8 @@ beamPackages.mixRelease rec {
     done
 
     chmod -x $out/bin/boot.exs
+    substituteInPlace $out/bin/start_lexical.sh --replace '! . "$script_dir"/activate_version_manager.sh' 'false'
+
     makeWrapper $out/bin/start_lexical.sh $out/bin/lexical --set RELEASE_COOKIE lexical
   '';
 }
