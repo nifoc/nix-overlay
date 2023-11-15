@@ -12,6 +12,10 @@ pkgs.python3.pkgs.buildPythonApplication rec {
     hash = "sha256-kxCDtOywDSMxI+h8Ad2eziAGcZLbZHJFpDD/87BIbZY=";
   };
 
+  patches = [
+    ../patches/bulk-downloader-for-reddit_recursion-limit.patch
+  ];
+
   nativeBuildInputs = with pkgs.python3.pkgs; [
     setuptools
     wheel
