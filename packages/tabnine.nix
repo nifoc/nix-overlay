@@ -2,6 +2,7 @@
 
 pkgs.tabnine.overrideAttrs (
   oa: rec {
+    # https://update.tabnine.com/bundles/version
     version = "4.49.0";
 
     src = pkgs.fetchurl {
