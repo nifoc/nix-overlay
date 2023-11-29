@@ -20,6 +20,9 @@ jobs:
         planner: linux
         github-token: null
     - run: nix flake update
-    - uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
+    - uses: https://github.com/stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "[automation] Update flake"
+        commit_user_name: Actions Bot
+        commit_user_email: daniel+actions-bot@kempkens.io
+        commit_author: Actions Bot <daniel+actions-bot@kempkens.io>
