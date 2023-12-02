@@ -7,7 +7,6 @@
 * [cliclick](https://github.com/BlueM/cliclick)
 * [fennel-ls](https://git.sr.ht/~xerool/fennel-ls)
 * [lexical](https://github.com/lexical-lsp/lexical)
-* [nitter](https://github.com/zedeus/nitter)
 * [phantomjs](https://github.com/ariya/phantomjs)
 * [q](https://github.com/natesales/q)
 * [rimgo](https://codeberg.org/video-prize-ranch/rimgo)

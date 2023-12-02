@@ -29,7 +29,6 @@ jobs:
     - run: nix build '.#fennel-ls'
     - run: nix build '.#headscale-ui'
     - run: nix build '.#lexical'
-    - run: nix build '.#nitter-unstable'
     - run: nix build '.#neovim-nightly'
     - run: nix build '.#q'
     - run: nix build '.#rimgo'

@@ -42,7 +42,6 @@
             headscale-ui = import ./packages/headscale-ui.nix { inherit pkgs lib; };
             lexical = import ./packages/lexical.nix { inherit pkgs lib; };
             neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit pkgs lib; };
-            nitter-unstable = import ./packages/nitter-unstable.nix { inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
             rexit = import ./packages/rexit.nix { inherit pkgs lib; };
             rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
