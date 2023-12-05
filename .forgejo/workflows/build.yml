@@ -8,56 +8,70 @@ on:
 
 jobs:
   build-amd64-linux:
-    runs-on: ubuntu-latest-amd64
+    runs-on: nix-amd64
 
     steps:
     - uses: actions/checkout@v4
       with:
         ref: master
-    - name: Install Nix
-      uses: https://github.com/DeterminateSystems/nix-installer-action@v4
-      with:
-        init: none
-        planner: linux
-        github-token: null
-    - name: Setup Attic
-      uses: https://github.com/ryanccn/attic-action@v0
-      with:
-        endpoint: ${{ secrets.ATTIC_ENDPOINT }}
-        cache: ${{ secrets.ATTIC_CACHE }}
-        token: ${{ secrets.ATTIC_TOKEN }}
-    - run: nix build '.#anonymous-overflow'
-    - run: nix build '.#bulk-downloader-for-reddit'
-    - run: nix build '.#fennel-ls'
-    - run: nix build '.#headscale-ui'
-    - run: nix build '.#lexical'
-    - run: nix build '.#neovim-nightly'
-    - run: nix build '.#q'
-    - run: nix build '.#rimgo'
-    - run: nix build '.#rexit'
-    - run: nix build '.#vuetorrent'
+    - name: Cache Login
+      run: |
+        echo "Logging in ..."
+        attic login --set-default attic ${{ secrets.ATTIC_ENDPOINT }} ${{ secrets.ATTIC_TOKEN }}
+    - run: |
+        nix build '.#anonymous-overflow'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#bulk-downloader-for-reddit'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#fennel-ls'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#headscale-ui'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#lexical'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#neovim-nightly'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#q'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#rimgo'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#rexit'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#vuetorrent'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
 
   build-arm64-linux:
-    runs-on: ubuntu-latest-arm64
+    runs-on: nix-arm64
 
     steps:
     - uses: actions/checkout@v4
       with:
         ref: master
-    - name: Install Nix
-      uses: https://github.com/DeterminateSystems/nix-installer-action@v4
-      with:
-        init: none
-        planner: linux
-        github-token: null
-    - name: Setup Attic
-      uses: https://github.com/ryanccn/attic-action@v0
-      with:
-        endpoint: ${{ secrets.ATTIC_ENDPOINT }}
-        cache: ${{ secrets.ATTIC_CACHE }}
-        token: ${{ secrets.ATTIC_TOKEN }}
-    - run: nix build '.#fennel-ls'
-    - run: nix build '.#lexical'
-    - run: nix build '.#neovim-nightly'
-    - run: nix build '.#q'
-    - run: nix build '.#weewx-proxy'
+    - name: Cache Login
+      run: |
+        echo "Logging in ..."
+        attic login --set-default attic ${{ secrets.ATTIC_ENDPOINT }} ${{ secrets.ATTIC_TOKEN }}
+    - run: |
+        nix build '.#fennel-ls'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#lexical'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#neovim-nightly'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#q'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
+    - run: |
+        nix build '.#weewx-proxy'
+        attic push ${{ secrets.ATTIC_CACHE }} ./result
