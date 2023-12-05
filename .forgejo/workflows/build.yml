@@ -18,34 +18,44 @@ jobs:
       run: |
         echo "Logging in ..."
         attic login --set-default attic ${{ secrets.ATTIC_ENDPOINT }} ${{ secrets.ATTIC_TOKEN }}
-    - run: |
+    - name: Build anonymous-overflow
+      run: |
         nix build '.#anonymous-overflow'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build bulk-downloader-for-reddit
+      run: |
         nix build '.#bulk-downloader-for-reddit'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build fennel-ls
+      run: |
         nix build '.#fennel-ls'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build headscale-ui
+      run: |
         nix build '.#headscale-ui'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build lexical
+      run: |
         nix build '.#lexical'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build neovim-nightly
+      run: |
         nix build '.#neovim-nightly'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build q
+      run: |
         nix build '.#q'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build rimgo
+      run: |
         nix build '.#rimgo'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build rexit
+      run: |
         nix build '.#rexit'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build vuetorrent
+      run: |
         nix build '.#vuetorrent'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
 
@@ -60,18 +70,23 @@ jobs:
       run: |
         echo "Logging in ..."
         attic login --set-default attic ${{ secrets.ATTIC_ENDPOINT }} ${{ secrets.ATTIC_TOKEN }}
-    - run: |
+    - name: Build fennel-ls
+      run: |
         nix build '.#fennel-ls'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build lexical
+      run: |
         nix build '.#lexical'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build neovim-nightly
+      run: |
         nix build '.#neovim-nightly'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build q
+      run: |
         nix build '.#q'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - run: |
+    - name: Build weewx-proxy
+      run: |
         nix build '.#weewx-proxy'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
