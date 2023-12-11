@@ -3,11 +3,11 @@
 pkgs.tabnine.overrideAttrs (
   oa: rec {
     # https://update.tabnine.com/bundles/version
-    version = "4.49.0";
+    version = "4.53.0";
 
     src = pkgs.fetchurl {
       url = "https://update.tabnine.com/bundles/${version}/aarch64-apple-darwin/TabNine.zip";
-      sha256 = "0wrzbv2mam83visp322vwg98f63wcxxwlwm5rzwyd0psgqmgjkb3";
+      sha256 = "01c1rxf6k5wv4758g9m8n6mngp07kr8xbskb5liz1x8cljcs6f72";
     };
 
     meta = with lib; {
