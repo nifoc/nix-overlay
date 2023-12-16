@@ -3,18 +3,18 @@
 let
   inherit (pkgs.stdenv) isDarwin;
 in
-pkgs.rustPlatform.buildRustPackage rec {
+pkgs.rustPlatform.buildRustPackage {
   pname = "rexit";
-  version = "1.2.1";
+  version = "1.3.0-unstable";
 
   src = pkgs.fetchFromGitHub {
     owner = "MPult";
     repo = "Rexit";
-    rev = "v${version}";
-    sha256 = "sha256-KnwyyMC/uUcOlrCMofMjN7F6FAkUGFQ9m7COUaGDGdE=";
+    rev = "4d0bbc84f21113d0741d8bee813e4437aded44ca";
+    sha256 = "sha256-isPrJ0BizVA03E57iJzlWiJhHNRfyaYkw4BupDtpvao="; 
   };
 
-  cargoSha256 = "sha256-69vqfut2uRReZXT+ILFlaCZ3mTtr0yhKgFSv1wZgZVI=";
+  cargoSha256 = "sha256-5NYzCYm8Aq7/aP1oEdE0dWssaxFPb6IOBQMol1F3heg=";
 
   nativeBuildInputs = with pkgs; [ pkg-config ];
 

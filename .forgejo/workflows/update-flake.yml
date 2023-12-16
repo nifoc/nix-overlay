@@ -21,7 +21,6 @@ jobs:
         nix-update --flake anonymous-overflow
         nix-update --flake --version development bulk-downloader-for-reddit
         nix-update --flake q
-        nix-update --flake rexit
         nix-update --flake vuetorrent
     - uses: https://github.com/stefanzweifel/git-auto-commit-action@v5
       with:
