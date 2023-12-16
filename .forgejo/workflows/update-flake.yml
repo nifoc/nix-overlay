@@ -16,6 +16,12 @@ jobs:
       with:
         ref: master
     - run: nix flake update
+    - name: Update packages
+      run: |
+        nix-update --flake anonymous-overflow
+        nix-update --flake --version development bulk-downloader-for-reddit
+        nix-update --flake q
+        nix-update --flake vuetorrent
     - uses: https://github.com/stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "[automation] Update flake"

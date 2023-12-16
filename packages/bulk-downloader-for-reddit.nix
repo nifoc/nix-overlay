@@ -2,7 +2,7 @@
 
 pkgs.python3.pkgs.buildPythonApplication rec {
   pname = "bulk-downloader-for-reddit";
-  version = "2023-10-02";
+  version = "development";
   pyproject = true;
 
   src = pkgs.fetchFromGitHub {
