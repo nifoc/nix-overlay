@@ -11,7 +11,7 @@ pkgs.buildGoModule rec {
     hash = "sha256-g4/C2L+ZTb+oJ9+vfMP4PxyBKRF30VCTvEQCuIALInE=";
   };
 
-  vendorSha256 = "sha256-dIzK8r3pPmV8B2xhpSK7Vg82RnsZ2kptEYOkYPZrPik=";
+  vendorHash = "sha256-dIzK8r3pPmV8B2xhpSK7Vg82RnsZ2kptEYOkYPZrPik=";
 
   postInstall = ''
     mkdir -p $out/share/anonymous-overflow

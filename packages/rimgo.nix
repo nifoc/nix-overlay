@@ -12,7 +12,7 @@ pkgs.buildGoModule rec {
     sha256 = "sha256-M40YS3T69sUzbEclr9jIl/6cJWmlvKYAsNcafaakWmg=";
   };
 
-  vendorSha256 = "sha256-u5N7aI9RIQ3EmiyHv0qhMcKkvmpp+5G7xbzdQcbhybs=";
+  vendorHash = "sha256-u5N7aI9RIQ3EmiyHv0qhMcKkvmpp+5G7xbzdQcbhybs=";
 
   nativeBuildInputs = [ pkgs.nodePackages.tailwindcss ];
 
