@@ -43,6 +43,7 @@
             lexical = import ./packages/lexical.nix { inherit pkgs lib; };
             neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
+            redlib = import ./packages/redlib.nix { inherit pkgs lib; };
             rexit = import ./packages/rexit.nix { inherit pkgs lib; };
             rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
             vuetorrent = import ./packages/vuetorrent.nix { inherit pkgs lib; };
