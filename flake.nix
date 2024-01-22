@@ -6,7 +6,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     neovim-flake = {
-      url = "github:neovim/neovim?rev=98a4ed0a110625e63950d85b26f3e4614393ea04&dir=contrib";
+      url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
