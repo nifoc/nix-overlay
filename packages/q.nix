@@ -13,7 +13,7 @@ pkgs.buildGo121Module rec {
 
   vendorHash = "sha256-6kdf+LwMrIjwC3uZHlMdpEHvonxKfr86PQaMOgzgYOc=";
 
-  ldflags = "-s -w -X main.version=release";
+  ldflags = [ "-s" "-w" "-X main.version=release" ];
   doCheck = false;
 
   meta = with lib; {
