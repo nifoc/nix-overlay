@@ -28,4 +28,6 @@ pkgs.python3.pkgs.buildPythonApplication rec {
     pytz
     pyyaml
   ];
+
+  dontCheckRuntimeDeps = true;
 }
