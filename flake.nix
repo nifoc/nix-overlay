@@ -38,6 +38,7 @@
           {
             anonymous-overflow = import ./packages/anonymous-overflow.nix { inherit pkgs lib; };
             bulk-downloader-for-reddit = import ./packages/bulk-downloader-for-reddit.nix { inherit pkgs lib; };
+            discord-downloader-go = import ./packages/discord-downloader-go.nix { inherit pkgs lib; };
             fennel-ls = import ./packages/fennel-ls.nix { inherit pkgs lib; };
             headscale-ui = import ./packages/headscale-ui.nix { inherit pkgs lib; };
             lexical = import ./packages/lexical.nix { inherit pkgs lib; };
