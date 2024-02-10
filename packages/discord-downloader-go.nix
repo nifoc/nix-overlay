@@ -7,11 +7,11 @@ pkgs.buildGo121Module rec {
   src = pkgs.fetchFromGitHub {
     owner = "get-got";
     repo = pname;
-    rev = "0993bcefa24d49c36d50b5fcbb101c73edbf5fd3";
-    hash = "sha256-0evA6dc+4JUdkgM0MUqBTJ1SUerUvGAB9/on+4/9jKY=";
+    rev = "837c9792182d94863fdfdda8f18db68407fb3df9";
+    hash = "sha256-pypkbDoinrRJxfTaVv2mKKMRXUqKIkW7xZJtRjSKtAM=";
   };
 
-  vendorHash = "sha256-7H42mz2GxSg3/dw92lX+HHxEHdJp/0AoIbUEGN3JX9c=";
+  vendorHash = "sha256-B//+f+jQMW5fj7aeyyi6DvTed40jvc7fxsgToIK0T3w=";
 
   doCheck = false;
 
