@@ -2,13 +2,13 @@
 
 pkgs.buildGo121Module rec {
   pname = "discord-downloader-go";
-  version = "2.5.0-dev";
+  version = "2.5.1-dev";
 
   src = pkgs.fetchFromGitHub {
     owner = "get-got";
     repo = pname;
-    rev = "837c9792182d94863fdfdda8f18db68407fb3df9";
-    hash = "sha256-pypkbDoinrRJxfTaVv2mKKMRXUqKIkW7xZJtRjSKtAM=";
+    rev = "22f7b76f30adbb33869d4a2b553e0054f2241f91";
+    hash = "sha256-zkTrE0rXgL/Sa+TebbsEB2K4AEOCSP3FBvqsWBTPWoY=";
   };
 
   vendorHash = "sha256-B//+f+jQMW5fj7aeyyi6DvTed40jvc7fxsgToIK0T3w=";
