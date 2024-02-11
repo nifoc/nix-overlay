@@ -2,13 +2,13 @@
 
 pkgs.buildGo121Module rec {
   pname = "discord-downloader-go";
-  version = "2.5.1-dev";
+  version = "2.5.2-dev";
 
   src = pkgs.fetchFromGitHub {
     owner = "get-got";
     repo = pname;
-    rev = "22f7b76f30adbb33869d4a2b553e0054f2241f91";
-    hash = "sha256-zkTrE0rXgL/Sa+TebbsEB2K4AEOCSP3FBvqsWBTPWoY=";
+    rev = "34c2e1e044b90817a422ace40711ee89c65b162f";
+    hash = "sha256-Zdxm42T4sXhhiWZaVdT1pTvmFNsmhcK5ph1S7JHZ6XQ=";
   };
 
   vendorHash = "sha256-B//+f+jQMW5fj7aeyyi6DvTed40jvc7fxsgToIK0T3w=";
@@ -20,5 +20,6 @@ pkgs.buildGo121Module rec {
     homepage = "https://github.com/get-got/discord-downloader-go";
     license = [ licenses.mit ];
     platforms = [ "x86_64-darwin" "aarch64-darwin" "aarch64-linux" "x86_64-linux" ];
+    mainProgram = "discord-downloader-go";
   };
 }
