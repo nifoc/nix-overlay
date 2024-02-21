@@ -41,7 +41,7 @@
             discord-downloader-go = import ./packages/discord-downloader-go.nix { inherit pkgs lib; };
             fennel-ls = import ./packages/fennel-ls.nix { inherit pkgs lib; };
             headscale-ui = import ./packages/headscale-ui.nix { inherit pkgs lib; };
-            lexical = import ./packages/lexical.nix { inherit pkgs lib; };
+            lexical = import ./packages/lexical.nix { inherit system; };
             neovim-nightly = import ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; inherit pkgs lib; };
             q = import ./packages/q.nix { inherit pkgs lib; };
             redlib = import ./packages/redlib.nix { inherit pkgs lib; };
