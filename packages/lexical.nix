@@ -1,3 +1,3 @@
 { system, ... }:
 
-(builtins.getFlake "github:lexical-lsp/lexical/a028a549e22f036d413334a42b67c9bb3cbdd13c").packages.${system}.default
+(builtins.getFlake "github:lexical-lsp/lexical/aba16bb757822535357a2100db7045b0cae0528a").packages.${system}.default
