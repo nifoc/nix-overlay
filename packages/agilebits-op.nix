@@ -2,11 +2,11 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "agilebits-op";
-  version = "2.15.0";
+  version = "2.25.0";
 
   src = pkgs.fetchurl {
     url = "https://cache.agilebits.com/dist/1P/op2/pkg/v${version}/op_apple_universal_v${version}.pkg";
-    sha256 = "sha256-KJVXW2Ze1AmDWNeTEfr7SsZMBmLyMfBv/FgC+XAds0A=";
+    hash = "sha256-JO7Hh8PUnW5D3GCJFPcVfIYXzHV6HkckqFnGK9vH7Qs=";
   };
 
   buildInputs = with pkgs; [ xar cpio ];
@@ -31,7 +31,7 @@ pkgs.stdenv.mkDerivation rec {
   meta = with lib; {
     description = "1Password command-line tool";
     homepage = "https://developer.1password.com/docs/cli";
-    license = licenses.unfree;
+    #license = licenses.unfree;
     platforms = [ "x86_64-darwin" "aarch64-darwin" ];
   };
 }
