@@ -29,7 +29,6 @@
           let
             darwinPackages =
               if lib.hasSuffix "darwin" system then rec {
-                agilebits-op = import ./packages/agilebits-op.nix { inherit pkgs lib; };
                 cliclick = import ./packages/cliclick.nix { inherit pkgs lib; };
                 phantomjs = import ./packages/phantomjs.nix { inherit pkgs lib; };
                 tabnine = import ./packages/tabnine { inherit pkgs lib; };
