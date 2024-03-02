@@ -1,0 +1,36 @@
+Subject: Set custom headers for imgur
+
+---
+ bdfr/resource.py | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+--- a/bdfr/resource.py
++++ b/bdfr/resource.py
+@@ -1,10 +1,12 @@
+ #!/usr/bin/env python3
+
++import fnmatch
+ import hashlib
+ import logging
+ import re
+ import time
+ import urllib.parse
++from urllib.parse import urlparse
+ from collections.abc import Callable
+ from typing import Optional
+
+@@ -66,6 +68,12 @@ class Resource:
+     @staticmethod
+     def http_download(url: str, download_parameters: dict) -> Optional[bytes]:
+         headers = download_parameters.get("headers")
++        domain = urlparse(url).hostname
++        if fnmatch.fnmatch(domain, "*.imgur.com"):
++            headers = {
++                "user-agent": "curl/8.1.1",
++                "accept": "*/*"
++            }
+         current_wait_time = 60
+         if "max_wait_time" in download_parameters:
+             max_wait_time = download_parameters["max_wait_time"]
+--
+2.43.1

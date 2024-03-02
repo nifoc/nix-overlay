@@ -14,6 +14,7 @@ pkgs.python3.pkgs.buildPythonApplication rec {
 
   patches = [
     ../patches/bulk-downloader-for-reddit_recursion-limit.patch
+    ../patches/bulk-downloader-for-reddit_imgur-headers.patch
   ];
 
   nativeBuildInputs = with pkgs.python3.pkgs; [
