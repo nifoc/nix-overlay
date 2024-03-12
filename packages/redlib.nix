@@ -14,7 +14,11 @@ pkgs.rustPlatform.buildRustPackage rec {
     sha256 = "sha256-h/UoMlCno9ua2H3dhOfN7S+3MEh8AbpcJ9+0IWootDM=";
   };
 
-  cargoSha256 = "sha256-5ax7Y2HRSwRor9QR9ykF8gq6jqq+V3PglRxspHSF5ws=";
+  cargoPatches = [
+    ../patches/redlib_cargo-lock.patch
+  ];
+
+  cargoSha256 = "sha256-0ExHV7m9j4HFDpZqp32XYXmwHhyRobS1CUymRB0lt4Y=";
 
   buildInputs = lib.optionals isDarwin (with pkgs.darwin.apple_sdk.frameworks; [
     Security
