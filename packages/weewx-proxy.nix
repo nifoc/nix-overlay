@@ -1,16 +1,8 @@
 { pkgs, lib, ... }:
 
 let
-  erlang = pkgs.beam.interpreters.erlangR26;
-  beamPackagesPrev = pkgs.beam.packagesWith erlang;
-  elixir = beamPackagesPrev.elixir_1_15;
-
-  beamPackages = beamPackagesPrev // rec {
-    inherit erlang elixir;
-    hex = beamPackagesPrev.hex.override { inherit elixir; };
-    buildMix = beamPackagesPrev.buildMix.override { inherit elixir erlang hex; };
-    mixRelease = beamPackagesPrev.mixRelease.override { inherit erlang elixir; };
-  };
+  erlang = pkgs.beam_nox.interpreters.erlangR26;
+  beamPackages = pkgs.beam_nox.packagesWith erlang;
 in
 beamPackages.mixRelease rec {
   pname = "weewx-proxy";
