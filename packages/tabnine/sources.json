@@ -1,17 +1,17 @@
 {
-  "version": "4.140.0",
+  "version": "4.142.0",
   "platforms": {
     "x86_64-linux": {
       "name": "x86_64-unknown-linux-musl",
-      "hash": "sha256-O2OWi9P7wRggCsLOcFnmuYU51065omH/YljR0p1+xgY="
+      "hash": "sha256-oLyqBTAh7/xVS0C0cAVoWvqzpTiZRh9IQNyRh6dAAa0="
     },
     "aarch64-darwin": {
       "name": "aarch64-apple-darwin",
-      "hash": "sha256-E7mha09GmLJ4tRfRxCx8GAdLKKVxewkkPpYxncS8t0o="
+      "hash": "sha256-d2W0XSTvEjmqUE3wX3BjifqgdWN/GYk5LUdNaqnBB58="
     },
     "x86_64-darwin": {
       "name": "x86_64-apple-darwin",
-      "hash": "sha256-N4YWgUiOgccxD9lMUMaSwF4uxbEKI/2+NldXBXLrp/I="
+      "hash": "sha256-5nBuzAvYOSYIONLTCFpQ6uVON6rTlDpKJY92Sww2mdY="
     }
   }
 }
