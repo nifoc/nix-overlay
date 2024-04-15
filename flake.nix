@@ -45,7 +45,6 @@
             q = import ./packages/q.nix { inherit pkgs lib; };
             redlib = import ./packages/redlib.nix { inherit pkgs lib; };
             rexit = import ./packages/rexit.nix { inherit pkgs lib; };
-            rimgo = import ./packages/rimgo.nix { inherit pkgs lib; };
             tg-archive = import ./packages/tg-archive.nix { inherit pkgs lib; };
             vuetorrent = import ./packages/vuetorrent.nix { inherit pkgs lib; };
 

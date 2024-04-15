@@ -54,10 +54,6 @@ jobs:
       run: |
         nix build '.#redlib'
         attic push ${{ secrets.ATTIC_CACHE }} ./result
-    - name: Build rimgo
-      run: |
-        nix build '.#rimgo'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
     - name: Build rexit
       run: |
         nix build '.#rexit'
