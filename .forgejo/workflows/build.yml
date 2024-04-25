@@ -21,51 +21,51 @@ jobs:
     - name: Build anonymous-overflow
       run: |
         nix build '.#anonymous-overflow'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build bulk-downloader-for-reddit
       run: |
         nix build '.#bulk-downloader-for-reddit'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build discord-downloader-go
       run: |
         nix build '.#discord-downloader-go'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build fennel-ls
       run: |
         nix build '.#fennel-ls'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build headscale-ui
       run: |
         nix build '.#headscale-ui'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build lexical
       run: |
         nix build '.#lexical'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build neovim-nightly
       run: |
         nix build '.#neovim-nightly'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build q
       run: |
         nix build '.#q'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build redlib
       run: |
         nix build '.#redlib'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build rexit
       run: |
         nix build '.#rexit'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build tg-archive
       run: |
         nix build '.#tg-archive'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build vuetorrent
       run: |
         nix build '.#vuetorrent'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
 
   build-arm64-linux:
     runs-on: nix-arm64
@@ -81,20 +81,20 @@ jobs:
     - name: Build fennel-ls
       run: |
         nix build '.#fennel-ls'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build lexical
       run: |
         nix build '.#lexical'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build neovim-nightly
       run: |
         nix build '.#neovim-nightly'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build q
       run: |
         nix build '.#q'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build weewx-proxy
       run: |
         nix build '.#weewx-proxy'
-        attic push ${{ secrets.ATTIC_CACHE }} ./result
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
