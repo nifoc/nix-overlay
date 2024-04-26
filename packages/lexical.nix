@@ -6,19 +6,19 @@ let
 in
 beamPackages.mixRelease rec {
   pname = "lexical";
-  version = "0.5.2";
+  version = "0.6.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "lexical-lsp";
     repo = "lexical";
     rev = "v${version}";
-    hash = "sha256-HWqwJ7PAz80bm6YeDG84hLWPE11n06K98GOyeDQWZWU=";
+    hash = "sha256-20qfzYioR1PhA0ZBcft0nhcwxB95pw5L9zoPLWd7ZIE=";
   };
 
   mixFodDeps = beamPackages.fetchMixDeps {
     pname = "mix-deps-${pname}";
     inherit src version;
-    sha256 = "sha256-oxR56mzV0uRs40j5N+bU1QDMXTYnJ789cUoOG462KtI=";
+    sha256 = "sha256-lcLANYM18NXvDL/T7eMm+0XDhXI7qo+GOJfxROUoTlo=";
   };
 
   NAMESPACE = "1";
