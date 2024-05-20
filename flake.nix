@@ -4,11 +4,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
-
-    neovim-flake = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
@@ -43,7 +38,6 @@
             fennel-ls = callPackage ./packages/fennel-ls.nix { };
             headscale-ui = callPackage ./packages/headscale-ui.nix { };
             lexical = callPackage ./packages/lexical.nix { };
-            neovim-nightly = callPackage ./packages/neovim-nightly.nix { inherit (inputs'.neovim-flake.packages) neovim; };
             q = callPackage ./packages/q.nix { };
             redlib = callPackage ./packages/redlib.nix { };
             rexit = callPackage ./packages/rexit.nix { };

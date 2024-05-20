@@ -42,10 +42,6 @@ jobs:
       run: |
         nix build '.#lexical'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
-    - name: Build neovim-nightly
-      run: |
-        nix build '.#neovim-nightly'
-        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build q
       run: |
         nix build '.#q'
@@ -85,10 +81,6 @@ jobs:
     - name: Build lexical
       run: |
         nix build '.#lexical'
-        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
-    - name: Build neovim-nightly
-      run: |
-        nix build '.#neovim-nightly'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build q
       run: |
