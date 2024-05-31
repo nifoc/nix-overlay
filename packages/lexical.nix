@@ -2,7 +2,7 @@
 
 let
   erlang = pkgs.beam_nox.interpreters.erlang_26;
-  beamPackages = pkgs.beam.packagesWith erlang;
+  beamPackages = pkgs.beam_nox.packagesWith erlang;
 in
 beamPackages.mixRelease rec {
   pname = "lexical";

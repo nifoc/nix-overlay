@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  erlang = pkgs.beam_nox.interpreters.erlangR26;
+  erlang = pkgs.beam_nox.interpreters.erlang_26;
   beamPackages = pkgs.beam_nox.packagesWith erlang;
 in
 beamPackages.mixRelease rec {
