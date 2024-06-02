@@ -2,11 +2,11 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "vuetorrent";
-  version = "2.8.1";
+  version = "2.9.0";
 
   src = pkgs.fetchurl {
     url = "https://github.com/WDaan/VueTorrent/releases/download/v${version}/vuetorrent.zip";
-    sha256 = "sha256-rSXq0Py+JV466k/9Fej9opmNLGl7H5dfQn3lXkJMriA=";
+    sha256 = "sha256-XrRfgxmRkbyi8FMXL6Pjltyawzr4SS2Gb4/Kz38tnkk=";
   };
 
   buildInputs = with pkgs; [ unzip ];
