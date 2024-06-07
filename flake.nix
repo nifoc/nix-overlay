@@ -26,6 +26,7 @@
 
             darwinPackages =
               if lib.hasSuffix "darwin" system then {
+                aerospace = callPackage ./packages/aerospace.nix { };
                 cliclick = callPackage ./packages/cliclick.nix { };
                 phantomjs = callPackage ./packages/phantomjs.nix { };
                 tabnine = callPackage ./packages/tabnine { };

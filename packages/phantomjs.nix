@@ -1,6 +1,6 @@
 { pkgs, lib }:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenvNoCC.mkDerivation rec {
   pname = "phantomjs";
   version = "2.1.1";
 
@@ -9,7 +9,7 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "U4z0iCGasn4wnq/GKeK87pl2mQ/pCx7DNPVBd5FQ+ME=";
   };
 
-  buildInputs = with pkgs; [ unzip ];
+  nativeBuildInputs = with pkgs; [ unzip ];
 
   unpackPhase = ''
     unzip $src
@@ -18,7 +18,9 @@ pkgs.stdenv.mkDerivation rec {
   dontStrip = true;
 
   installPhase = ''
+    runHook preInstall
     install -D phantomjs-${version}-macosx/bin/phantomjs $out/bin/phantomjs
+    runHook postInstall
   '';
 
   doInstallCheck = true;

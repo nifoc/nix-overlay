@@ -3,7 +3,7 @@
 # Based on: https://github.com/NixOS/nixpkgs/blob/91a00709aebb3602f172a0bf47ba1ef013e34835/pkgs/development/tools/tabnine/default.nix
 
 let
-  stdenv = pkgs.stdenv;
+  stdenv = pkgs.stdenvNoCC;
 
   sources = lib.importJSON ./sources.json;
 
