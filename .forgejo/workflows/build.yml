@@ -38,10 +38,6 @@ jobs:
       run: |
         nix build '.#headscale-ui'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
-    - name: Build lexical
-      run: |
-        nix build '.#lexical'
-        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build q
       run: |
         nix build '.#q'
@@ -77,10 +73,6 @@ jobs:
     - name: Build fennel-ls
       run: |
         nix build '.#fennel-ls'
-        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
-    - name: Build lexical
-      run: |
-        nix build '.#lexical'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build q
       run: |

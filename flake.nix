@@ -38,7 +38,6 @@
             discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
             fennel-ls = callPackage ./packages/fennel-ls.nix { };
             headscale-ui = callPackage ./packages/headscale-ui.nix { };
-            lexical = callPackage ./packages/lexical.nix { };
             q = callPackage ./packages/q.nix { };
             redlib = callPackage ./packages/redlib.nix { };
             rexit = callPackage ./packages/rexit.nix { };
