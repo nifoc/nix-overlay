@@ -4,6 +4,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    poetry2nix = {
+      url = "github:nix-community/poetry2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
@@ -24,6 +29,8 @@
           let
             inherit (pkgs) callPackage;
 
+            poetry2nix = inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; };
+
             darwinPackages =
               if lib.hasSuffix "darwin" system then {
                 cliclick = callPackage ./packages/cliclick.nix { };
@@ -43,6 +50,7 @@
             rexit = callPackage ./packages/rexit.nix { };
             tg-archive = callPackage ./packages/tg-archive.nix { };
             vuetorrent = callPackage ./packages/vuetorrent.nix { };
+            weewx = callPackage ./packages/weewx.nix { inherit poetry2nix; };
             weewx-proxy = callPackage ./packages/weewx-proxy.nix { };
           } // darwinPackages;
 
