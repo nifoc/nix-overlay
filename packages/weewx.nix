@@ -40,6 +40,35 @@ let
     url = "https://github.com/Daveiano/weewx-wdc/releases/download/v3.5.1/weewx-wdc-v3.5.1.zip";
     hash = "sha256-MPjh/a6+f668yfD5AyCWFmyD1Q5p8nxCzESOUKx7wkQ=";
   };
+
+  custom-extensions = /* python */ ''
+    #
+    #    Copyright (c) 2009-2015 Tom Keffer <tkeffer@gmail.com>
+    #
+    #    See the file LICENSE.txt for your full rights.
+    #
+
+    """User extensions module
+
+    This module is imported from the main executable, so anything put here will be
+    executed before anything else happens. This makes it a good place to put user
+    extensions.
+    """
+
+    import locale
+    # This will use the locale specified by the environment variable 'LANG'
+    # Other options are possible. See:
+    # http://docs.python.org/2/library/locale.html#locale.setlocale
+    locale.setlocale(locale.LC_ALL, ''')
+
+    import weewx.units
+
+    weewx.units.obs_group_dict['soilMoist1'] = 'group_percent'
+    weewx.units.obs_group_dict['luminosity'] = 'group_illuminance'
+
+    weewx.units.obs_group_dict['soilMoistBatteryVoltage1'] = 'group_volt'
+    weewx.units.obs_group_dict['soilTempBatteryVoltage1'] = 'group_volt'
+  '';
 in
 poetry2nix.mkPoetryApplication {
   inherit python;
@@ -79,7 +108,7 @@ poetry2nix.mkPoetryApplication {
     pkgs.unzip
   ];
 
-  buildInputs = with pythonPackages; [
+  propagatedBuildInputs = with pythonPackages; [
     paho-mqtt
     requests
   ];
@@ -101,5 +130,14 @@ poetry2nix.mkPoetryApplication {
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-purpleair} --yes
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-aqi} --yes
     HOME=$out/home $out/bin/weectl extension install $TMPDIR/weewx-wdc/ --yes
+
+    cat << EOF > $out/home/weewx-data/bin/user/extensions.py
+    ${custom-extensions}
+    EOF
   '';
 }
+
+
+
+
+
