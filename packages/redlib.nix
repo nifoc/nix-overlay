@@ -5,20 +5,20 @@ let
 in
 pkgs.rustPlatform.buildRustPackage rec {
   pname = "redlib";
-  version = "0.34.0";
+  version = "0.35.1";
 
   src = pkgs.fetchFromGitHub {
     owner = "redlib-org";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-JpuCX2ae9me+zHxQj5jqQlgDci2NV+TEVUAqnuTn3cA=";
+    sha256 = "sha256-W1v7iOE60/6UyZSHQW+L+wHCoKnKUNb3kpm4LVLPZ6c=";
   };
 
   # cargoPatches = [
   #   ../patches/redlib_cargo-lock.patch
   # ];
 
-  cargoSha256 = "sha256-gkRblCHUFiprZeYtu43GIGBZqCq5l/HEGaQN91XbfSs=";
+  cargoSha256 = "sha256-3NQWiu/nTtHrivYL1pgxqQxEuIW0xfjxwK0ZEa2y1Kk=";
 
   buildInputs = lib.optionals isDarwin (with pkgs.darwin.apple_sdk.frameworks; [
     Security
