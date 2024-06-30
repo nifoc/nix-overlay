@@ -31,11 +31,6 @@ let
     hash = "sha256-L7mzbsb/Ewzd6kCrceOESMzEJDLjshFohgVK2U5/ZsM=";
   };
 
-  plugin-weewx-aqi = pkgs.fetchurl {
-    url = "https://github.com/jonathankoren/weewx-aqi/archive/refs/tags/v1.4.1.zip";
-    hash = "sha256-jDZPfhkLm2aRqeeevJadqNZBHgcYcHvYBxW6HFmJQUE=";
-  };
-
   plugin-weewx-wdc = pkgs.fetchurl {
     url = "https://github.com/Daveiano/weewx-wdc/releases/download/v3.5.1/weewx-wdc-v3.5.1.zip";
     hash = "sha256-MPjh/a6+f668yfD5AyCWFmyD1Q5p8nxCzESOUKx7wkQ=";
@@ -128,7 +123,6 @@ poetry2nix.mkPoetryApplication {
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-mqtt-subscribe} --yes
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-gts} --yes
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-purpleair} --yes
-    HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-aqi} --yes
     HOME=$out/home $out/bin/weectl extension install $TMPDIR/weewx-wdc/ --yes
 
     cat << EOF > $out/home/weewx-data/bin/user/extensions.py
