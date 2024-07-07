@@ -109,6 +109,7 @@ poetry2nix.mkPoetryApplication {
   ];
 
   postPatch = ''
+    substituteInPlace pyproject.toml --replace-fail 'requires = ["poetry>=0.12"]' "requires = []"
     substituteInPlace pyproject.toml --replace-fail "poetry.masonry" "poetry.core.masonry"
   '';
 
