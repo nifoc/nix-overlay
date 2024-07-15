@@ -63,6 +63,9 @@ let
 
     weewx.units.obs_group_dict['soilMoistBatteryVoltage1'] = 'group_volt'
     weewx.units.obs_group_dict['soilTempBatteryVoltage1'] = 'group_volt'
+
+    weewx.units.obs_group_dict['solarEnergyDay'] = 'group_energy'
+    weewx.units.obs_group_dict['solarEnergyActive'] = 'group_power'
   '';
 in
 poetry2nix.mkPoetryApplication {
