@@ -21,6 +21,11 @@ let
     hash = "sha256-co9fTm6vBZzg2jSKi7kmi7n//pi/bLE3rJhTT2O1ZtE=";
   };
 
+  plugin-weewx-xaggs = pkgs.fetchurl {
+    url = "https://github.com/tkeffer/weewx-xaggs/archive/5d11e149f96a98fe0518b9feb4ddc8a0d461db63.zip";
+    hash = "sha256-lHg+/3l60wqV0r+9BHMtzuDQsrVJFP/Ql2XAHjp0UM4=";
+  };
+
   plugin-weewx-gts = pkgs.fetchurl {
     url = "https://github.com/roe-dl/weewx-GTS/archive/3d9c04d4fc2541b555c2a3274c4dc093126fab2e.zip";
     hash = "sha256-h5tomXhi0Me+tJtfrvgePGLDo4sQm+0SkrndOWjVUzw=";
@@ -125,6 +130,7 @@ poetry2nix.mkPoetryApplication {
 
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-mqtt} --yes
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-mqtt-subscribe} --yes
+    HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-xaggs} --yes
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-gts} --yes
     HOME=$out/home $out/bin/weectl extension install ${plugin-weewx-purpleair} --yes
     HOME=$out/home $out/bin/weectl extension install $TMPDIR/weewx-wdc/ --yes
