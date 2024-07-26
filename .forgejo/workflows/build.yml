@@ -26,6 +26,10 @@ jobs:
       run: |
         nix build '.#bulk-downloader-for-reddit'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
+    - name: Build controld
+      run: |
+        nix build '.#controld'
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build discord-downloader-go
       run: |
         nix build '.#discord-downloader-go'
@@ -74,6 +78,10 @@ jobs:
       run: |
         echo "Logging in ..."
         attic login --set-default attic ${{ secrets.ATTIC_ENDPOINT }} ${{ secrets.ATTIC_TOKEN }}
+    - name: Build controld
+      run: |
+        nix build '.#controld'
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build fennel-ls
       run: |
         nix build '.#fennel-ls'

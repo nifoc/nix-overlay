@@ -1,6 +1,6 @@
 { pkgs, lib }:
 
-pkgs.buildGo121Module rec {
+pkgs.buildGoModule rec {
   pname = "q";
   version = "0.19.2";
 
@@ -13,7 +13,7 @@ pkgs.buildGo121Module rec {
 
   vendorHash = "sha256-6kdf+LwMrIjwC3uZHlMdpEHvonxKfr86PQaMOgzgYOc=";
 
-  ldflags = [ "-s" "-w" "-X main.version=release" ];
+  ldflags = [ "-s" "-w" "-X main.version=${version}" ];
   doCheck = false;
 
   meta = with lib; {
