@@ -71,6 +71,8 @@ let
 
     weewx.units.obs_group_dict['solarEnergyDay'] = 'group_energy'
     weewx.units.obs_group_dict['solarEnergyActive'] = 'group_power'
+    weewx.units.obs_group_dict['homeEnergyDay'] = 'group_energy'
+    weewx.units.obs_group_dict['homeEnergyActive'] = 'group_power'
   '';
 in
 poetry2nix.mkPoetryApplication {
@@ -140,8 +142,3 @@ poetry2nix.mkPoetryApplication {
     EOF
   '';
 }
-
-
-
-
-
