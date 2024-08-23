@@ -2,14 +2,14 @@
 
 pkgs.python3.pkgs.buildPythonApplication rec {
   pname = "tg-archive";
-  version = "1.2.0";
+  version = "1.2.1";
   pyproject = true;
 
   src = pkgs.fetchFromGitHub {
     owner = "knadh";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-wAVfq/rsMAI/Hwqt61PrKAPNppP7R1nn6Xsjx5xx8Fo=";
+    hash = "sha256-msgF4sSd8bvwN2+CK4xeaKaXGduChDNw8qQrT9lpfyk=";
   };
 
   nativeBuildInputs = with pkgs.python3.pkgs; [
