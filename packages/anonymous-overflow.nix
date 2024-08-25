@@ -2,16 +2,16 @@
 
 pkgs.buildGoModule rec {
   pname = "anonymous-overflow";
-  version = "1.12.1";
+  version = "1.13.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "httpjamesm";
     repo = "AnonymousOverflow";
     rev = "v${version}";
-    hash = "sha256-VGtmqpTxJ4o0adpvh6EyVeo/4d1RFMXJb21enXn69Ig=";
+    hash = "sha256-hvcOJctvNswEws+cCoeGQSvFzZvnThhKk3fJ7TnNulY=";
   };
 
-  vendorHash = "sha256-ycRTNCBN0jlkgqRNsSqh7DB1JGdmrGuRRgRr79Ugp3U=";
+  vendorHash = "sha256-P3kUGFJhj/pTNeVTwtg4IqhoHBH9rROfkr+ZsrUtmdo=";
 
   postInstall = ''
     mkdir -p $out/share/anonymous-overflow
