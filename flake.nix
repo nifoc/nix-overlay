@@ -47,7 +47,6 @@
             fennel-ls = callPackage ./packages/fennel-ls.nix { };
             headscale-ui = callPackage ./packages/headscale-ui.nix { };
             q = callPackage ./packages/q.nix { };
-            redlib = callPackage ./packages/redlib.nix { };
             rexit = callPackage ./packages/rexit.nix { };
             tg-archive = callPackage ./packages/tg-archive.nix { };
             vuetorrent = callPackage ./packages/vuetorrent.nix { };

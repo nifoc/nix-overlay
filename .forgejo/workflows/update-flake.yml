@@ -23,7 +23,6 @@ jobs:
         nix-update --flake controld
         nix-update --flake discord-downloader-go
         nix-update --flake q
-        nix-update --flake redlib 
         env NIX_PATH=nixpkgs=$(nix flake metadata github:nixos/nixpkgs/nixos-unstable-small --json | jq -r .path) nix-shell ./packages/tabnine/update.sh
         nix-update --flake tg-archive
         nix-update --flake vuetorrent
