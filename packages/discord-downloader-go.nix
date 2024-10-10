@@ -1,6 +1,6 @@
 { pkgs, lib }:
 
-pkgs.buildGo121Module rec {
+pkgs.buildGoModule rec {
   pname = "discord-downloader-go";
   version = "2.5.3";
 
