@@ -18,6 +18,7 @@ jobs:
     - run: nix flake update
     - name: Update packages
       run: |
+        nix-update --flake ai-robots-txt
         nix-update --flake anonymous-overflow
         nix-update --flake --version development bulk-downloader-for-reddit
         nix-update --flake controld
