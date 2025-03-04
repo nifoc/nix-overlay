@@ -47,6 +47,7 @@
             fennel-ls = callPackage ./packages/fennel-ls.nix { };
             headscale-ui = callPackage ./packages/headscale-ui.nix { };
             q = callPackage ./packages/q.nix { };
+            slurp-gts = callPackage ./packages/slurp-gts.nix { };
             tg-archive = callPackage ./packages/tg-archive.nix { };
             vuetorrent = callPackage ./packages/vuetorrent.nix { };
             weewx = callPackage ./packages/weewx.nix { inherit poetry2nix; };
