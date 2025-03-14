@@ -42,17 +42,9 @@ jobs:
       run: |
         nix build '.#fennel-ls'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
-    - name: Build headscale-ui
-      run: |
-        nix build '.#headscale-ui'
-        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build q
       run: |
         nix build '.#q'
-        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
-    - name: Build tg-archive
-      run: |
-        nix build '.#tg-archive'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build vuetorrent
       run: |
@@ -89,6 +81,10 @@ jobs:
     - name: Build q
       run: |
         nix build '.#q'
+        attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
+    - name: Build weewx
+      run: |
+        nix build '.#weewx'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build weewx-proxy
       run: |
