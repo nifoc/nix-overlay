@@ -23,6 +23,7 @@ jobs:
         nix-update --flake --version development bulk-downloader-for-reddit
         nix-update --flake controld
         nix-update --flake discord-downloader-go
+        nix-update --flake octodns-ovh
         nix-update --flake q
         nix-update --flake --version main slurp-gts 
         env NIX_PATH=nixpkgs=$(nix flake metadata github:nixos/nixpkgs/nixpkgs-unstable --json | jq -r .path) nix-shell ./packages/tabnine/update.sh

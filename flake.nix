@@ -47,6 +47,7 @@
             discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
             fennel-ls = callPackage ./packages/fennel-ls.nix { };
             headscale-ui = callPackage ./packages/headscale-ui.nix { };
+            octodns-ovh = callPackage ./packages/octodns-ovh.nix { };
             q = callPackage ./packages/q.nix { };
             slurp-gts = callPackage ./packages/slurp-gts.nix { };
             tg-archive = callPackage ./packages/tg-archive.nix { };
