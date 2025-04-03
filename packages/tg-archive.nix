@@ -1,9 +1,6 @@
-{ pkgs, lib }:
+{ pkgs, lib, buildPythonApplication, setuptools, wheel, cryptg, feedgen, jinja2, telethon, pillow, python-magic, pysocks, pytz, pyyaml }:
 
-let
-  python = pkgs.python310;
-in
-python.pkgs.buildPythonApplication rec {
+buildPythonApplication rec {
   pname = "tg-archive";
   version = "1.3.0";
   pyproject = true;
@@ -15,12 +12,12 @@ python.pkgs.buildPythonApplication rec {
     hash = "sha256-/b9LmHOyFqaKiQ5FHemLmg6DZU+3zzh1jLBEI7RTu4Q=";
   };
 
-  nativeBuildInputs = with python.pkgs; [
+  nativeBuildInputs = [
     setuptools
     wheel
   ];
 
-  propagatedBuildInputs = with python.pkgs; [
+  propagatedBuildInputs = [
     cryptg
     feedgen
     jinja2

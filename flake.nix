@@ -29,6 +29,8 @@
           let
             inherit (pkgs) callPackage;
 
+            callPythonPackage = pkgs.python3.pkgs.callPackage;
+            callPython310Package = pkgs.python310.pkgs.callPackage;
             poetry2nix = inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; };
 
             darwinPackages =
@@ -42,15 +44,15 @@
           {
             ai-robots-txt = callPackage ./packages/ai-robots-txt.nix { };
             anonymous-overflow = callPackage ./packages/anonymous-overflow.nix { };
-            bulk-downloader-for-reddit = callPackage ./packages/bulk-downloader-for-reddit.nix { };
+            bulk-downloader-for-reddit = callPython310Package ./packages/bulk-downloader-for-reddit.nix { };
             controld = callPackage ./packages/controld.nix { };
             discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
             fennel-ls = callPackage ./packages/fennel-ls.nix { };
             headscale-ui = callPackage ./packages/headscale-ui.nix { };
-            octodns-ovh = callPackage ./packages/octodns-ovh.nix { };
+            octodns-ovh = callPythonPackage ./packages/octodns-ovh.nix { };
             q = callPackage ./packages/q.nix { };
             slurp-gts = callPackage ./packages/slurp-gts.nix { };
-            tg-archive = callPackage ./packages/tg-archive.nix { };
+            tg-archive = callPython310Package ./packages/tg-archive.nix { };
             vuetorrent = callPackage ./packages/vuetorrent.nix { };
             weewx = callPackage ./packages/weewx.nix { inherit poetry2nix; };
             weewx-proxy = callPackage ./packages/weewx-proxy.nix { };

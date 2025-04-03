@@ -1,9 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, buildPythonPackage, setuptools, ovh, requests, pytestCheckHook, requests-mock }:
 
-let
-  python = pkgs.python312;
-in
-python.pkgs.buildPythonPackage rec {
+buildPythonPackage rec {
   pname = "octodns-ovh";
   version = "0.0.2";
   pyproject = true;
@@ -15,11 +12,11 @@ python.pkgs.buildPythonPackage rec {
     hash = "sha256-/OiQQ+RkkL17E7R3Xz55R58SVJQPisURNhxgmpTvgu0=";
   };
 
-  build-system = with python.pkgs; [
+  build-system = [
     setuptools
   ];
 
-  dependencies = with python.pkgs; [
+  dependencies = [
     pkgs.octodns
     ovh
     requests
@@ -29,7 +26,7 @@ python.pkgs.buildPythonPackage rec {
 
   pythonImportsCheck = [ "octodns_ovh" ];
 
-  nativeCheckInputs = with python.pkgs; [
+  nativeCheckInputs = [
     pytestCheckHook
     requests-mock
   ];

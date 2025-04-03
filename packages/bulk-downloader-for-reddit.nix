@@ -1,9 +1,6 @@
-{ pkgs, lib }:
+{ pkgs, lib, buildPythonApplication, setuptools, wheel, praw, appdirs, beautifulsoup4, cachetools, click, dict2xml, pyyaml, requests, yt-dlp }:
 
-let
-  python = pkgs.python310;
-in
-python.pkgs.buildPythonApplication rec {
+buildPythonApplication rec {
   pname = "bulk-downloader-for-reddit";
   version = "development";
   pyproject = true;
@@ -20,18 +17,18 @@ python.pkgs.buildPythonApplication rec {
     ../patches/bulk-downloader-for-reddit_imgur-headers.patch
   ];
 
-  nativeBuildInputs = with python.pkgs; [
+  nativeBuildInputs = [
     setuptools
     wheel
   ];
 
   propagatedBuildInputs =
     let
-      praw = python.praw.overrideAttrs (_: previousAttrs: {
+      praw-old = praw.overrideAttrs (_: previousAttrs: {
         version = "7.7.1";
         pyproject = true;
 
-        nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ python.pkgs.setuptools ];
+        nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ setuptools ];
 
         src = pkgs.fetchFromGitHub {
           owner = "praw-dev";
@@ -41,13 +38,13 @@ python.pkgs.buildPythonApplication rec {
         };
       });
     in
-    with python.pkgs; [
+    [
       appdirs
       beautifulsoup4
       cachetools
       click
       dict2xml
-      praw
+      praw-old
       pyyaml
       requests
       yt-dlp
