@@ -1,6 +1,9 @@
 { pkgs, lib }:
 
-pkgs.python3.pkgs.buildPythonApplication rec {
+let
+  python = pkgs.python310;
+in
+python.pkgs.buildPythonApplication rec {
   pname = "tg-archive";
   version = "1.3.0";
   pyproject = true;
@@ -12,12 +15,12 @@ pkgs.python3.pkgs.buildPythonApplication rec {
     hash = "sha256-/b9LmHOyFqaKiQ5FHemLmg6DZU+3zzh1jLBEI7RTu4Q=";
   };
 
-  nativeBuildInputs = with pkgs.python3.pkgs; [
+  nativeBuildInputs = with python.pkgs; [
     setuptools
     wheel
   ];
 
-  propagatedBuildInputs = with pkgs.python3.pkgs; [
+  propagatedBuildInputs = with python.pkgs; [
     cryptg
     feedgen
     jinja2

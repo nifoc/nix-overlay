@@ -1,6 +1,9 @@
 { pkgs, lib }:
 
-pkgs.python310.pkgs.buildPythonApplication rec {
+let
+  python = pkgs.python310;
+in
+python.pkgs.buildPythonApplication rec {
   pname = "bulk-downloader-for-reddit";
   version = "development";
   pyproject = true;
@@ -17,18 +20,18 @@ pkgs.python310.pkgs.buildPythonApplication rec {
     ../patches/bulk-downloader-for-reddit_imgur-headers.patch
   ];
 
-  nativeBuildInputs = with pkgs.python310.pkgs; [
+  nativeBuildInputs = with python.pkgs; [
     setuptools
     wheel
   ];
 
   propagatedBuildInputs =
     let
-      praw = pkgs.python310.pkgs.praw.overrideAttrs (_: previousAttrs: {
+      praw = python.praw.overrideAttrs (_: previousAttrs: {
         version = "7.7.1";
         pyproject = true;
 
-        nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ pkgs.python310.pkgs.setuptools ];
+        nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ python.pkgs.setuptools ];
 
         src = pkgs.fetchFromGitHub {
           owner = "praw-dev";
@@ -38,7 +41,7 @@ pkgs.python310.pkgs.buildPythonApplication rec {
         };
       });
     in
-    with pkgs.python310.pkgs; [
+    with python.pkgs; [
       appdirs
       beautifulsoup4
       cachetools
