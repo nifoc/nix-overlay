@@ -28,7 +28,7 @@ jobs:
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build bulk-downloader-for-reddit
       run: |
-        nix build '.#bulk-downloader-for-reddit'
+        nix build --fallback '.#bulk-downloader-for-reddit'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build controld
       run: |
@@ -52,7 +52,7 @@ jobs:
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build weewx
       run: |
-        nix build '.#weewx'
+        nix build --fallback '.#weewx'         
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
 
   build-arm64-linux:
@@ -84,9 +84,9 @@ jobs:
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build weewx
       run: |
-        nix build '.#weewx'
+        nix build --fallback '.#weewx'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
     - name: Build weewx-proxy
       run: |
-        nix build '.#weewx-proxy'
+        nix build --fallback '.#weewx-proxy'
         attic push ${{ secrets.ATTIC_CACHE }} $(nix-store -qR --include-outputs $(nix-store -qd ./result) | grep -v '\.drv$')
