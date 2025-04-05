@@ -44,7 +44,7 @@
           {
             ai-robots-txt = callPackage ./packages/ai-robots-txt.nix { };
             anonymous-overflow = callPackage ./packages/anonymous-overflow.nix { };
-            bulk-downloader-for-reddit = callPython310Package ./packages/bulk-downloader-for-reddit.nix { };
+            bulk-downloader-for-reddit = callPythonPackage ./packages/bulk-downloader-for-reddit.nix { };
             controld = callPackage ./packages/controld.nix { };
             discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
             fennel-ls = callPackage ./packages/fennel-ls.nix { };
