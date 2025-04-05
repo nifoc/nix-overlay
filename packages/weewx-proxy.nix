@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
 
 let
-  erlang = pkgs.beam_nox.interpreters.erlang_26;
-  beamPackages = pkgs.beam_nox.packagesWith erlang;
+  erlang = pkgs.beam_minimal.interpreters.erlang_26;
+  beamPackages = pkgs.beam_minimal.packagesWith erlang;
 in
 beamPackages.mixRelease rec {
   pname = "weewx-proxy";
