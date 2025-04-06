@@ -29,6 +29,8 @@
           let
             inherit (pkgs) callPackage;
 
+            callBeamPackage = pkgs.beamMinimalPackages.callPackage;
+
             callPythonPackage = pkgs.python3.pkgs.callPackage;
             callPython310Package = pkgs.python310.pkgs.callPackage;
             poetry2nix = inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; };
@@ -55,7 +57,7 @@
             tg-archive = callPython310Package ./packages/tg-archive.nix { };
             vuetorrent = callPackage ./packages/vuetorrent.nix { };
             weewx = callPackage ./packages/weewx.nix { inherit poetry2nix; };
-            weewx-proxy = callPackage ./packages/weewx-proxy.nix { };
+            weewx-proxy = callBeamPackage ./packages/weewx-proxy.nix { };
           } // darwinPackages;
 
         overlayAttrs = config.packages;

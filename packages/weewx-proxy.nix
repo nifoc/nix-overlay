@@ -1,9 +1,5 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, beamPackages, ... }:
 
-let
-  erlang = pkgs.beam_minimal.interpreters.erlang_26;
-  beamPackages = pkgs.beam_minimal.packagesWith erlang;
-in
 beamPackages.mixRelease rec {
   pname = "weewx-proxy";
   version = "0.0.1";
