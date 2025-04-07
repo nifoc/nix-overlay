@@ -11,7 +11,8 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs =
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "aarch64-darwin"
@@ -24,44 +25,58 @@
         flake-parts.flakeModules.easyOverlay
       ];
 
-      perSystem = { inputs', system, config, pkgs, lib, ... }: {
-        packages =
-          let
-            inherit (pkgs) callPackage;
+      perSystem =
+        {
+          inputs',
+          system,
+          config,
+          pkgs,
+          lib,
+          ...
+        }:
+        {
+          packages =
+            let
+              inherit (pkgs) callPackage;
 
-            callBeamPackage = pkgs.beamMinimalPackages.callPackage;
+              callBeamPackage = pkgs.beamMinimalPackages.callPackage;
 
-            callPythonPackage = pkgs.python3.pkgs.callPackage;
-            callPython310Package = pkgs.python310.pkgs.callPackage;
-            poetry2nix = inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; };
+              callPythonPackage = pkgs.python3.pkgs.callPackage;
+              callPython310Package = pkgs.python310.pkgs.callPackage;
+              callPython311Package = pkgs.python311.pkgs.callPackage;
+              poetry2nix = inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; };
 
-            darwinPackages =
-              if lib.hasSuffix "darwin" system then {
-                cliclick = callPackage ./packages/cliclick.nix { };
-                phantomjs = callPackage ./packages/phantomjs.nix { };
-                tabnine = callPackage ./packages/tabnine { };
-                vfkit = callPackage ./packages/vfkit.nix { };
-              } else { };
-          in
-          {
-            ai-robots-txt = callPackage ./packages/ai-robots-txt.nix { };
-            anonymous-overflow = callPackage ./packages/anonymous-overflow.nix { };
-            bulk-downloader-for-reddit = callPythonPackage ./packages/bulk-downloader-for-reddit.nix { };
-            controld = callPackage ./packages/controld.nix { };
-            discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
-            fennel-ls = callPackage ./packages/fennel-ls.nix { };
-            headscale-ui = callPackage ./packages/headscale-ui.nix { };
-            octodns-ovh = callPythonPackage ./packages/octodns-ovh.nix { };
-            q = callPackage ./packages/q.nix { };
-            slurp-gts = callPackage ./packages/slurp-gts.nix { };
-            tg-archive = callPython310Package ./packages/tg-archive.nix { };
-            vuetorrent = callPackage ./packages/vuetorrent.nix { };
-            weewx = callPackage ./packages/weewx.nix { inherit poetry2nix; };
-            weewx-proxy = callBeamPackage ./packages/weewx-proxy.nix { };
-          } // darwinPackages;
+              darwinPackages =
+                if lib.hasSuffix "darwin" system then
+                  {
+                    cliclick = callPackage ./packages/cliclick.nix { };
+                    phantomjs = callPackage ./packages/phantomjs.nix { };
+                    tabnine = callPackage ./packages/tabnine { };
+                    vfkit = callPackage ./packages/vfkit.nix { };
+                  }
+                else
+                  { };
+            in
+            {
+              ai-robots-txt = callPackage ./packages/ai-robots-txt.nix { };
+              anonymous-overflow = callPackage ./packages/anonymous-overflow.nix { };
+              bulk-downloader-for-reddit = callPythonPackage ./packages/bulk-downloader-for-reddit.nix { };
+              controld = callPackage ./packages/controld.nix { };
+              discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
+              fennel-ls = callPackage ./packages/fennel-ls.nix { };
+              headscale-ui = callPackage ./packages/headscale-ui.nix { };
+              octodns-ovh = callPythonPackage ./packages/octodns-ovh.nix { };
+              q = callPackage ./packages/q.nix { };
+              slurp-gts = callPackage ./packages/slurp-gts.nix { };
+              tg-archive = callPython310Package ./packages/tg-archive.nix { };
+              vuetorrent = callPackage ./packages/vuetorrent.nix { };
+              weewx = callPython311Package ./packages/weewx.nix { inherit poetry2nix; };
+              weewx-proxy = callBeamPackage ./packages/weewx-proxy.nix { };
+            }
+            // darwinPackages;
 
-        overlayAttrs = config.packages;
-      };
+          overlayAttrs = config.packages;
+        };
 
       flake = {
         overlay = inputs.self.overlays.default;

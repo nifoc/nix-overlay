@@ -1,9 +1,31 @@
-{ pkgs, lib, poetry2nix }:
+{
+  pkgs,
+  lib,
+  poetry2nix,
+  python,
+  # build
+  cachecontrol,
+  cleo,
+  crashtest,
+  dulwich,
+  fastjsonschema,
+  keyring,
+  pexpect,
+  pkginfo,
+  platformdirs,
+  poetry-core,
+  requests-toolbelt,
+  shellingham,
+  tomlkit,
+  trove-classifiers,
+  virtualenv,
+  xattr,
+  # runtime
+  paho-mqtt,
+  requests,
+}:
 
 let
-  python = pkgs.python311;
-  pythonPackages = pkgs.python311Packages;
-
   weewx = pkgs.fetchFromGitHub {
     owner = "weewx";
     repo = "weewx";
@@ -41,56 +63,59 @@ let
     hash = "sha256-MPjh/a6+f668yfD5AyCWFmyD1Q5p8nxCzESOUKx7wkQ=";
   };
 
-  custom-extensions = /* python */ ''
-    #
-    #    Copyright (c) 2009-2015 Tom Keffer <tkeffer@gmail.com>
-    #
-    #    See the file LICENSE.txt for your full rights.
-    #
+  custom-extensions = # python
+    ''
+      #
+      #    Copyright (c) 2009-2015 Tom Keffer <tkeffer@gmail.com>
+      #
+      #    See the file LICENSE.txt for your full rights.
+      #
 
-    """User extensions module
+      """User extensions module
 
-    This module is imported from the main executable, so anything put here will be
-    executed before anything else happens. This makes it a good place to put user
-    extensions.
-    """
+      This module is imported from the main executable, so anything put here will be
+      executed before anything else happens. This makes it a good place to put user
+      extensions.
+      """
 
-    import locale
-    # This will use the locale specified by the environment variable 'LANG'
-    # Other options are possible. See:
-    # http://docs.python.org/2/library/locale.html#locale.setlocale
-    locale.setlocale(locale.LC_ALL, ''')
+      import locale
+      # This will use the locale specified by the environment variable 'LANG'
+      # Other options are possible. See:
+      # http://docs.python.org/2/library/locale.html#locale.setlocale
+      locale.setlocale(locale.LC_ALL, ''')
 
-    import weewx.units
+      import weewx.units
 
-    weewx.units.obs_group_dict['soilMoist1'] = 'group_percent'
-    weewx.units.obs_group_dict['luminosity'] = 'group_illuminance'
+      weewx.units.obs_group_dict['soilMoist1'] = 'group_percent'
+      weewx.units.obs_group_dict['luminosity'] = 'group_illuminance'
 
-    weewx.units.obs_group_dict['soilMoistBatteryVoltage1'] = 'group_volt'
-    weewx.units.obs_group_dict['soilTempBatteryVoltage1'] = 'group_volt'
+      weewx.units.obs_group_dict['soilMoistBatteryVoltage1'] = 'group_volt'
+      weewx.units.obs_group_dict['soilTempBatteryVoltage1'] = 'group_volt'
 
-    weewx.units.obs_group_dict['solarEnergyDay'] = 'group_energy'
-    weewx.units.obs_group_dict['solarEnergyActive'] = 'group_power'
-    weewx.units.obs_group_dict['homeEnergyDay'] = 'group_energy'
-    weewx.units.obs_group_dict['homeEnergyExportDay'] = 'group_energy'
-    weewx.units.obs_group_dict['homeEnergyActive'] = 'group_power'
-  '';
+      weewx.units.obs_group_dict['solarEnergyDay'] = 'group_energy'
+      weewx.units.obs_group_dict['solarEnergyActive'] = 'group_power'
+      weewx.units.obs_group_dict['homeEnergyDay'] = 'group_energy'
+      weewx.units.obs_group_dict['homeEnergyExportDay'] = 'group_energy'
+      weewx.units.obs_group_dict['homeEnergyActive'] = 'group_power'
+    '';
 in
 poetry2nix.mkPoetryApplication {
   inherit python;
   projectDir = weewx;
 
-  overrides = poetry2nix.defaultPoetryOverrides.extend (final: prev: {
-    ct3 = prev.ct3.overridePythonAttrs (old: {
-      buildInputs = (old.buildInputs or [ ]) ++ [ prev.setuptools ];
-    });
+  overrides = poetry2nix.defaultPoetryOverrides.extend (
+    final: prev: {
+      ct3 = prev.ct3.overridePythonAttrs (old: {
+        buildInputs = (old.buildInputs or [ ]) ++ [ prev.setuptools ];
+      });
 
-    pyserial = prev.pyserial.overridePythonAttrs (old: {
-      buildInputs = (old.buildInputs or [ ]) ++ [ prev.setuptools ];
-    });
-  });
+      pyserial = prev.pyserial.overridePythonAttrs (old: {
+        buildInputs = (old.buildInputs or [ ]) ++ [ prev.setuptools ];
+      });
+    }
+  );
 
-  nativeBuildInputs = with pythonPackages; [
+  nativeBuildInputs = [
     # Poetry (?)
     cachecontrol
     cleo
@@ -114,7 +139,7 @@ poetry2nix.mkPoetryApplication {
     pkgs.unzip
   ];
 
-  propagatedBuildInputs = with pythonPackages; [
+  propagatedBuildInputs = [
     paho-mqtt
     requests
   ];
