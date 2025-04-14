@@ -69,6 +69,7 @@
               q = callPackage ./packages/q.nix { };
               slurp-gts = callPackage ./packages/slurp-gts.nix { };
               tg-archive = callPython310Package ./packages/tg-archive.nix { };
+              tuwunel = callPackage ./packages/tuwunel.nix { };
               vuetorrent = callPackage ./packages/vuetorrent.nix { };
               weewx = callPython311Package ./packages/weewx.nix { inherit poetry2nix; };
               weewx-proxy = callBeamPackage ./packages/weewx-proxy.nix { };
