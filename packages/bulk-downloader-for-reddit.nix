@@ -2,7 +2,7 @@
 
 buildPythonApplication rec {
   pname = "bulk-downloader-for-reddit";
-  version = "development";
+  version = "2.6.2-unstable-2024-11-14";
   pyproject = true;
 
   src = pkgs.fetchFromGitHub {

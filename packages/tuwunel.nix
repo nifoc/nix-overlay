@@ -28,17 +28,17 @@ let
 in
 rustPlatform.buildRustPackage rec {
   pname = "tuwunel";
-  version = "main";
+  version = "0-unstable-2025-04-17";
 
   src = fetchFromGitHub {
     owner = "matrix-construct";
     repo = pname;
-    rev = "500faa8d7fcefab2f5bee867bf268f87fc0643fa";
-    hash = "sha256-bBW0xbcAimESt9q9BgMf4M/P6UyoEWgLMsc9Bj3gvlM=";
+    rev = "eb2949d6d77349bc96932b1db3abf54e4fb07cc9";
+    hash = "sha256-AoQff9D0ahy9K7Wyr6YOe+zNLli5pSc31xi6Mqv7XSM=";
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-wk+ppj67fX1rks1um3PW0HN7XuBhZ1Tn7vEgOGjge6E=";
+  cargoHash = "sha256-RiP+Y651WOnLwLX2ajZV+GYh/xJsOVuz42wj8h4PoyQ=";
 
   nativeBuildInputs = [
     pkg-config
