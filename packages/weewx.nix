@@ -29,8 +29,8 @@ let
   weewx = pkgs.fetchFromGitHub {
     owner = "weewx";
     repo = "weewx";
-    rev = "v5.0.2";
-    hash = "sha256-UVHoi+hXcpbledeXlZ+7TDwIeLIXYazmpDcwW3QW5BY=";
+    rev = "v5.1.0";
+    hash = "sha256-o1Dyo0SBUO29w7rOlxV31S2xda0m1KiCjPMQQm1uEu4=";
   };
 
   plugin-weewx-mqtt = pkgs.fetchurl {
@@ -39,8 +39,8 @@ let
   };
 
   plugin-weewx-mqtt-subscribe = pkgs.fetchurl {
-    url = "https://github.com/bellrichm/weewx-mqttsubscribe/archive/refs/tags/v2.3.1.zip";
-    hash = "sha256-co9fTm6vBZzg2jSKi7kmi7n//pi/bLE3rJhTT2O1ZtE=";
+    url = "https://github.com/bellrichm/weewx-mqttsubscribe/archive/refs/tags/v3.0.0.zip";
+    hash = "sha256-izhEsOeRlg6wvwKnZnmHW+a/Y2eD1fsXwoBujoVaXAw=";
   };
 
   plugin-weewx-xaggs = pkgs.fetchurl {
@@ -49,8 +49,8 @@ let
   };
 
   plugin-weewx-gts = pkgs.fetchurl {
-    url = "https://github.com/roe-dl/weewx-GTS/archive/3d9c04d4fc2541b555c2a3274c4dc093126fab2e.zip";
-    hash = "sha256-h5tomXhi0Me+tJtfrvgePGLDo4sQm+0SkrndOWjVUzw=";
+    url = "https://github.com/roe-dl/weewx-GTS/archive/7a92c51572ec461a174b61ffbc665036e3cfcf61.zip";
+    hash = "sha256-/SDCmP785JOwI+/8AHJ9jhXmOarYWetb2Ruhm1f4b8Q=";
   };
 
   plugin-weewx-purpleair = pkgs.fetchurl {
@@ -107,6 +107,12 @@ poetry2nix.mkPoetryApplication {
     final: prev: {
       ct3 = prev.ct3.overridePythonAttrs (old: {
         buildInputs = (old.buildInputs or [ ]) ++ [ prev.setuptools ];
+      });
+
+      pillow = prev.pillow.overridePythonAttrs (old: {
+        postPatch = ''
+          echo "# AVIF_ROOT = None" >> setup.py
+        '';
       });
 
       pyserial = prev.pyserial.overridePythonAttrs (old: {

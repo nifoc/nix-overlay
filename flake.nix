@@ -43,7 +43,7 @@
 
               callPythonPackage = pkgs.python3.pkgs.callPackage;
               callPython310Package = pkgs.python310.pkgs.callPackage;
-              callPython311Package = pkgs.python311.pkgs.callPackage;
+              callPython312Package = pkgs.python312.pkgs.callPackage;
               poetry2nix = inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; };
 
               darwinPackages =
@@ -71,7 +71,7 @@
               tg-archive = callPython310Package ./packages/tg-archive.nix { };
               tuwunel = callPackage ./packages/tuwunel.nix { };
               vuetorrent = callPackage ./packages/vuetorrent.nix { };
-              weewx = callPython311Package ./packages/weewx.nix { inherit poetry2nix; };
+              weewx = callPython312Package ./packages/weewx.nix { inherit poetry2nix; };
               weewx-proxy = callBeamPackage ./packages/weewx-proxy.nix { };
             }
             // darwinPackages;
