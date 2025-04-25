@@ -28,13 +28,13 @@ let
 in
 rustPlatform.buildRustPackage rec {
   pname = "tuwunel";
-  version = "0.5.0-unstable-2025-04-22";
+  version = "0.5.0-unstable-2025-04-24";
 
   src = fetchFromGitHub {
     owner = "matrix-construct";
     repo = pname;
-    rev = "76509830e64af509f63b288709b9bf5637a67c41";
-    hash = "sha256-11QfTFze+eeZzcPahjH6UA4PHoEG/UAmTjvVIZXRtPI=";
+    rev = "bc9cf8580703d1c759d92303213657613c8d5340";
+    hash = "sha256-/OAi7Zm6N+43zerJuOqhrhm3rb5L3T2Zq53CwUw/eHs=";
   };
 
   useFetchCargoVendor = true;
