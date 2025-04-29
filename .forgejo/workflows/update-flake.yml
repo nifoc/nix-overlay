@@ -27,7 +27,7 @@ jobs:
         nix-update --flake q
         nix-update --flake --version branch slurp-gts
         nix-update --flake tg-archive
-        nix-update --flake --version branch tuwunel
+        #nix-update --flake --version branch tuwunel
         nix-update --flake vuetorrent
     - uses: https://github.com/stefanzweifel/git-auto-commit-action@v5
       with:
