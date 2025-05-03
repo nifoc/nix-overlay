@@ -1,0 +1,28 @@
+Subject: Handle images being None
+
+---
+ bdfr/site_downloaders/imgur.py | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+--- a/bdfr/site_downloaders/imgur.py
++++ b/bdfr/site_downloaders/imgur.py
+@@ -22,11 +22,12 @@ class Imgur(BaseDownloader):
+
+         out = []
+         if "is_album" in self.raw_data:
+-            for image in self.raw_data["images"]:
+-                if "mp4" in image:
+-                    out.append(Resource(self.post, image["mp4"], Resource.retry_download(image["mp4"])))
+-                else:
+-                    out.append(Resource(self.post, image["link"], Resource.retry_download(image["link"])))
++            if self.raw_data["images"] is not None:
++                for image in self.raw_data["images"]:
++                    if "mp4" in image:
++                        out.append(Resource(self.post, image["mp4"], Resource.retry_download(image["mp4"])))
++                    else:
++                        out.append(Resource(self.post, image["link"], Resource.retry_download(image["link"])))
+         else:
+             if "mp4" in self.raw_data:
+                 out.append(Resource(self.post, self.raw_data["mp4"], Resource.retry_download(self.raw_data["mp4"])))
+--
+2.49.0

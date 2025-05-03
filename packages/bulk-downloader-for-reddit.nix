@@ -1,4 +1,19 @@
-{ pkgs, lib, buildPythonApplication, setuptools, wheel, praw, appdirs, beautifulsoup4, cachetools, click, dict2xml, pyyaml, requests, yt-dlp }:
+{
+  pkgs,
+  lib,
+  buildPythonApplication,
+  setuptools,
+  wheel,
+  praw,
+  appdirs,
+  beautifulsoup4,
+  cachetools,
+  click,
+  dict2xml,
+  pyyaml,
+  requests,
+  yt-dlp,
+}:
 
 buildPythonApplication rec {
   pname = "bulk-downloader-for-reddit";
@@ -15,6 +30,7 @@ buildPythonApplication rec {
   patches = [
     ../patches/bulk-downloader-for-reddit_recursion-limit.patch
     ../patches/bulk-downloader-for-reddit_imgur-headers.patch
+    ../patches/bulk-downloader-for-reddit_imgur-album-images-none.patch
   ];
 
   nativeBuildInputs = [
@@ -24,19 +40,21 @@ buildPythonApplication rec {
 
   propagatedBuildInputs =
     let
-      praw-old = praw.overrideAttrs (_: previousAttrs: {
-        version = "7.7.1";
-        pyproject = true;
+      praw-old = praw.overrideAttrs (
+        _: previousAttrs: {
+          version = "7.7.1";
+          pyproject = true;
 
-        nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ setuptools ];
+          nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ setuptools ];
 
-        src = pkgs.fetchFromGitHub {
-          owner = "praw-dev";
-          repo = previousAttrs.pname;
-          rev = "refs/tags/v${version}";
-          hash = "sha256-L7wTHD/ypXVc8GMfl9u16VNb9caLJoXpaMEIzaVVUgo=";
-        };
-      });
+          src = pkgs.fetchFromGitHub {
+            owner = "praw-dev";
+            repo = previousAttrs.pname;
+            rev = "refs/tags/v${version}";
+            hash = "sha256-L7wTHD/ypXVc8GMfl9u16VNb9caLJoXpaMEIzaVVUgo=";
+          };
+        }
+      );
     in
     [
       appdirs
