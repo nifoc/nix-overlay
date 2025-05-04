@@ -1,0 +1,19 @@
+Subject: Do not crash on ChunkedEncodingError
+
+---
+ bdfr/resource.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/bdfr/resource.py
++++ b/bdfr/resource.py
+@@ -44,7 +44,7 @@ class Resource:
+         if not self.content:
+             try:
+                 content = self.download_function(download_parameters)
+-            except requests.exceptions.ConnectionError as e:
++            except (requests.exceptions.ConnectionError, requests.exceptions.ChunkedEncodingError) as e:
+                 raise BulkDownloaderException(f"Could not download resource: {e}")
+             except BulkDownloaderException:
+                 raise
+--
+2.49.0
