@@ -52,7 +52,6 @@
                     cliclick = callPackage ./packages/cliclick.nix { };
                     phantomjs = callPackage ./packages/phantomjs.nix { };
                     tabnine = callPackage ./packages/tabnine { };
-                    vfkit = callPackage ./packages/vfkit.nix { };
                   }
                 else
                   { };
