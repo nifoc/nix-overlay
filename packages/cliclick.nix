@@ -14,14 +14,16 @@ pkgs.stdenv.mkDerivation rec {
 
   NIX_CFLAGS_COMPILE = "-include cliclick_Prefix.pch -I Actions -I .";
 
-  buildInputs = (with pkgs; [
-    perl
-  ]) ++ (with pkgs.darwin.apple_sdk.frameworks; [
-    Carbon
-    Cocoa
-    Foundation
-    IOKit
-  ]);
+  buildInputs =
+    (with pkgs; [
+      perl
+    ])
+    ++ (with pkgs.darwin.apple_sdk.frameworks; [
+      Carbon
+      Cocoa
+      Foundation
+      IOKit
+    ]);
 
   dontStrip = true;
 
@@ -40,6 +42,6 @@ pkgs.stdenv.mkDerivation rec {
     description = "macOS CLI tool for emulating mouse and keyboard events";
     homepage = "https://github.com/BlueM/cliclick";
     license = licenses.bsd3;
-    platforms = [ "x86_64-darwin" "aarch64-darwin" ];
+    platforms = lib.platforms.darwin;
   };
 }
