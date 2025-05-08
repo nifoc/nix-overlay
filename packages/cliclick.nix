@@ -1,10 +1,17 @@
-{ pkgs, lib }:
+{
+  stdenv,
+  fetchFromGitHub,
+  lib,
+  # Dependencies
+  perl,
+  apple-sdk_14,
+}:
 
-pkgs.stdenv.mkDerivation rec {
+stdenv.mkDerivation rec {
   pname = "cliclick";
   version = "5.1";
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "BlueM";
     repo = pname;
     rev = version;
@@ -14,16 +21,10 @@ pkgs.stdenv.mkDerivation rec {
 
   NIX_CFLAGS_COMPILE = "-include cliclick_Prefix.pch -I Actions -I .";
 
-  buildInputs =
-    (with pkgs; [
-      perl
-    ])
-    ++ (with pkgs.darwin.apple_sdk.frameworks; [
-      Carbon
-      Cocoa
-      Foundation
-      IOKit
-    ]);
+  buildInputs = [
+    perl
+    apple-sdk_14
+  ];
 
   dontStrip = true;
 
@@ -38,10 +39,10 @@ pkgs.stdenv.mkDerivation rec {
     $out/bin/cliclick -V
   '';
 
-  meta = with lib; {
+  meta = {
     description = "macOS CLI tool for emulating mouse and keyboard events";
     homepage = "https://github.com/BlueM/cliclick";
-    license = licenses.bsd3;
+    license = lib.licenses.bsd3;
     platforms = lib.platforms.darwin;
   };
 }
