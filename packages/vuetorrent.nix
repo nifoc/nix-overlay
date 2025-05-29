@@ -1,6 +1,6 @@
 { pkgs, lib }:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenvNoCC.mkDerivation rec {
   pname = "vuetorrent";
   version = "2.25.0";
 
@@ -23,9 +23,14 @@ pkgs.stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "The sleekest looking WEBUI for qBittorrent made with Vuejs! ";
+    description = "The sleekest looking WEBUI for qBittorrent made with Vuejs!";
     homepage = "https://github.com/WDaan/VueTorrent";
     license = [ licenses.gpl3Only ];
-    platforms = [ "x86_64-darwin" "aarch64-darwin" "aarch64-linux" "x86_64-linux" ];
+    platforms = [
+      "x86_64-darwin"
+      "aarch64-darwin"
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
   };
 }
