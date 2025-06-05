@@ -2,13 +2,13 @@
 
 pkgs.stdenvNoCC.mkDerivation rec {
   pname = "ai-robots-txt";
-  version = "1.33";
+  version = "1.34";
 
   src = pkgs.fetchFromGitHub {
     owner = "ai-robots-txt";
     repo = "ai.robots.txt";
     rev = "v${version}";
-    hash = "sha256-MUfVh1qlBmgsRfQKfte69am+mAMKv6AyOzOrIujFIu0=";
+    hash = "sha256-9k2l7quVZDWxTamNHyIu4axkErmBYo9uEO7raCLtjLk=";
   };
 
   installPhase = ''
