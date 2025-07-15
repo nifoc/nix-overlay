@@ -1,4 +1,14 @@
-{ pkgs, lib, buildPythonPackage, setuptools, ovh, requests, pytestCheckHook, requests-mock }:
+{
+  pkgs,
+  lib,
+  buildPythonPackage,
+  setuptools,
+  octodns,
+  ovh,
+  requests,
+  pytestCheckHook,
+  requests-mock,
+}:
 
 buildPythonPackage rec {
   pname = "octodns-ovh";
@@ -17,12 +27,10 @@ buildPythonPackage rec {
   ];
 
   dependencies = [
-    pkgs.octodns
+    octodns
     ovh
     requests
   ];
-
-  env.OCTODNS_RELEASE = 1;
 
   pythonImportsCheck = [ "octodns_ovh" ];
 
