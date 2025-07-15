@@ -55,6 +55,7 @@
               discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
               fennel-ls = callPackage ./packages/fennel-ls.nix { };
               headscale-ui = callPackage ./packages/headscale-ui.nix { };
+              octodns-desec = callPythonPackage ./packages/octodns-desec.nix { };
               octodns-ovh = callPythonPackage ./packages/octodns-ovh.nix { };
               phantomjs = callPackage ./packages/phantomjs.nix { };
               q = callPackage ./packages/q.nix { };
