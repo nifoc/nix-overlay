@@ -32,6 +32,7 @@ buildPythonApplication rec {
     ../patches/bulk-downloader-for-reddit_imgur-headers.patch
     ../patches/bulk-downloader-for-reddit_imgur-album-images-none.patch
     ../patches/bulk-downloader-for-reddit_downloader-no-crash-on-chunkedencodingerror.patch
+    ../patches/bulk-downloader-for-reddit_ytdl-add-optional-support-for-a-netrc-file.patch
   ];
 
   nativeBuildInputs = [

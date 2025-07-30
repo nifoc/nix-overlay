@@ -1,0 +1,21 @@
+Subject: [PATCH] feat(ytdl): add optional support for a netrc file
+
+---
+ bdfr/site_downloaders/youtube.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+--- a/bdfr/site_downloaders/youtube.py
++++ b/bdfr/site_downloaders/youtube.py
+@@ -38,6 +38,10 @@ class Youtube(BaseDownloader):
+         ytdl_options["quiet"] = True
+         ytdl_options["logger"] = yt_logger
+
++        if 'YTDL_NETRC_LOCATION' in os.environ:
++            ytdl_options["usenetrc"] = True
++            ytdl_options["netrc_location"] = os.environ.get('YTDL_NETRC_LOCATION', '/etc/netrc')
++
+         def download(_: dict) -> bytes:
+             with tempfile.TemporaryDirectory() as temp_dir:
+                 download_path = Path(temp_dir).resolve()
+--
+2.50.0
