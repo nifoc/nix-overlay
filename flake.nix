@@ -62,7 +62,6 @@
               slurp-gts = callPackage ./packages/slurp-gts.nix { };
               tg-archive = callPython310Package ./packages/tg-archive.nix { };
               torrent-best-blocklist = callPackage ./packages/torrent-best-blocklist.nix { };
-              tuwunel = callPackage ./packages/tuwunel.nix { };
               vuetorrent = callPackage ./packages/vuetorrent.nix { };
               weewx = callPython312Package ./packages/weewx.nix { inherit poetry2nix; };
               weewx-proxy = callBeamPackage ./packages/weewx-proxy.nix { };
