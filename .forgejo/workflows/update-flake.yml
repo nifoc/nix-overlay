@@ -30,7 +30,6 @@ jobs:
         nix-update --flake tg-archive
         nix-update --flake --version branch=main torrent-best-blocklist
         nix-update --flake vuetorrent
-        nix-update --flake --version branch=master weewx-proxy
     - uses: https://github.com/stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "[automation] Update flake"
