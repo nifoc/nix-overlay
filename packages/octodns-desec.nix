@@ -11,14 +11,14 @@
 
 buildPythonPackage rec {
   pname = "octodns-desec";
-  version = "1.0.1";
+  version = "1.1.0";
   pyproject = true;
 
   src = pkgs.fetchFromGitHub {
     owner = "rootshell-labs";
     repo = "octodns-desec";
     tag = "${version}";
-    hash = "sha256-LVrPVVlDm88p9BeqdD/mJwfjREuup7TYmPA2IoIi8w0=";
+    hash = "sha256-SQadWTaLWsPM2ZVFnr25025/Ik/RjQ0lfIZY4cT78pM=";
   };
 
   build-system = [
