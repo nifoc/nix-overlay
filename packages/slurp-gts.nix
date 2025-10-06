@@ -2,16 +2,16 @@
 
 pkgs.buildGoModule rec {
   pname = "slurp";
-  version = "0.1.0-unstable-2025-04-29";
+  version = "0.1.0-unstable-2025-10-05";
 
   src = pkgs.fetchFromGitHub {
     owner = "VyrCossont";
     repo = pname;
-    rev = "b620b465dcad179ae1a03f0d50da1d2fa1f8a518";
-    hash = "sha256-6tCpceXK/FIl6xOTPgLCzCyhrM6Kt+JAuBJDcZC2si4=";
+    rev = "09cda949528ec0b0bbe026de4eae631207c6bad1";
+    hash = "sha256-EK9viZthZAI6Me2qa1QICqa8FBUX6yt/uX8Wxo2dVyI=";
   };
 
-  vendorHash = "sha256-e8uEC6aRFdhhBTpUyOpv6ZWfQl9FE8EVEdEyBJFcYp4=";
+  vendorHash = "sha256-E8X6cG9ydGY/KLDzoQYfF3ZVnSF8vwnwYxaTdVGwHEU=";
 
   doCheck = false;
 
