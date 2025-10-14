@@ -59,6 +59,7 @@
               octodns-ovh = callPythonPackage ./packages/octodns-ovh.nix { };
               phantomjs = callPackage ./packages/phantomjs.nix { };
               q = callPackage ./packages/q.nix { };
+              rift = callPackage ./packages/rift.nix { };
               slurp-gts = callPackage ./packages/slurp-gts.nix { };
               tg-archive = callPython310Package ./packages/tg-archive.nix { };
               torrent-best-blocklist = callPackage ./packages/torrent-best-blocklist.nix { };
