@@ -12,8 +12,8 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "acsandmann";
     repo = "rift";
-    rev = "c5f9ebcb8051ddc3a4203290a451cddfb47ebd50";
-    hash = "sha256-4ITK2vG6LG3M0hbpDKj7NT9a6ah95GdGag0pI9x3OBQ=";
+    rev = "e81fde300846295dd9fe78d9a3369a805e0d027d";
+    hash = "sha256-Aj7qbeMml3Rd7GSk0guSLo1bjWUEcAnDAeCqL1SWlKg=";
   };
 
   cargoHash = "sha256-+DWieSNh7B2EW9AvAT97Q6wSE+T4h5McVW6X6lqDA6Y=";
