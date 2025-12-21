@@ -53,6 +53,7 @@
               cliclick = callPackage ./packages/cliclick.nix { };
               controld = callPackage ./packages/controld.nix { };
               discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
+              fedifetcher = callPythonPackage ./packages/fedifetcher.nix { };
               fennel-ls = callPackage ./packages/fennel-ls.nix { };
               headscale-ui = callPackage ./packages/headscale-ui.nix { };
               octodns-desec = callPythonPackage ./packages/octodns-desec.nix { };
