@@ -24,7 +24,7 @@ jobs:
         nix-update --flake controld
         nix-update --flake discord-downloader-go
         nix-update --flake fedifetcher
-        nix-update --flake octodns-desec
+        #nix-update --flake octodns-desec
         nix-update --flake octodns-ovh
         nix-update --flake q
         nix-update --flake --version branch=main rift

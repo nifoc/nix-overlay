@@ -15,10 +15,11 @@ buildPythonPackage rec {
   pyproject = true;
 
   src = pkgs.fetchFromGitHub {
-    owner = "rootshell-labs";
+    owner = "nifoc";
     repo = "octodns-desec";
-    tag = "${version}";
-    hash = "sha256-SQadWTaLWsPM2ZVFnr25025/Ik/RjQ0lfIZY4cT78pM=";
+    rev = "391d7ca1925cab07c360bba972a0f72dd2fbd6de";
+    # tag = "${version}";
+    hash = "sha256-edIYoGLzDtHCCJT2bFAlhimnp9gakui4MD2p5P9cxRg=";
   };
 
   build-system = [
