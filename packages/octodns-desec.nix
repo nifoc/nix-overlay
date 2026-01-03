@@ -17,9 +17,9 @@ buildPythonPackage rec {
   src = pkgs.fetchFromGitHub {
     owner = "nifoc";
     repo = "octodns-desec";
-    rev = "391d7ca1925cab07c360bba972a0f72dd2fbd6de";
+    rev = "59fcbdf611f85c5108cd9713b190a5e575faed42";
     # tag = "${version}";
-    hash = "sha256-edIYoGLzDtHCCJT2bFAlhimnp9gakui4MD2p5P9cxRg=";
+    hash = "sha256-SqiP2di0WmzG+CGe6+UslUb5ShG4eDIfs3bf5kpIf3o=";
   };
 
   build-system = [
