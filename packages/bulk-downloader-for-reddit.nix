@@ -17,14 +17,14 @@
 
 buildPythonApplication rec {
   pname = "bulk-downloader-for-reddit";
-  version = "2.6.2-unstable-2024-11-14";
+  version = "2.6.2-unstable-2026-01-15";
   pyproject = true;
 
   src = pkgs.fetchFromGitHub {
     owner = "Serene-Arc";
     repo = pname;
-    rev = "b5b47f93e8380c9ef576eb52cd4c80d2fadf905a";
-    hash = "sha256-Tt1uWoS4VUnoVGKCgkLxXB8Sf4N1Z4U/5wirajB3nPg=";
+    rev = "6a8874d60b29fd227a51ccb38ea2e38f7485369c";
+    hash = "sha256-4VV+xS/8KAqzJQo7QuMQvQfEmpCRIabPtHPDHcIHmb0=";
   };
 
   patches = [
