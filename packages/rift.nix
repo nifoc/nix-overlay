@@ -7,13 +7,13 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "rift";
-  version = "0.3.6-unstable-2026-01-19";
+  version = "0.3.7-unstable-2026-01-20";
 
   src = fetchFromGitHub {
     owner = "acsandmann";
     repo = "rift";
-    rev = "32e08d265a50da2de3b9f931603322347ae3eb90";
-    hash = "sha256-FMqI/AY4L8Yj90FSnqRbq9Wzcy+2MfKVPSXKPUaXNDE=";
+    rev = "f6bef77e997fdc7887cdc80fd1655aaa1623e4a3";
+    hash = "sha256-xxSMg2g0hEBMP5o2GchTS7CmLSfnzO7PFntog8tO6x8=";
   };
 
   cargoHash = "sha256-A0huWauj3Ltnw39jFft6pyYUVcNK+lu89ZlVQl/aRZg=";
