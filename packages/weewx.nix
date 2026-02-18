@@ -13,7 +13,6 @@
   pexpect,
   pkginfo,
   platformdirs,
-  poetry-core,
   requests-toolbelt,
   shellingham,
   tomlkit,
@@ -132,7 +131,6 @@ poetry2nix.mkPoetryApplication {
     pexpect
     pkginfo
     platformdirs
-    poetry-core
     requests-toolbelt
     shellingham
     tomlkit
