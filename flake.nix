@@ -62,6 +62,7 @@
               q = callPackage ./packages/q.nix { };
               rift = callPackage ./packages/rift.nix { };
               slurp-gts = callPackage ./packages/slurp-gts.nix { };
+              raspberry-pi4-uefi-fw = callPackage ./packages/raspberry-pi4-uefi-fw.nix { };
               tg-archive = callPython310Package ./packages/tg-archive.nix { };
               torrent-best-blocklist = callPackage ./packages/torrent-best-blocklist.nix { };
               vuetorrent = callPackage ./packages/vuetorrent.nix { };
