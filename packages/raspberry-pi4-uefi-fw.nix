@@ -13,7 +13,7 @@ let
     owner = "raspberrypi";
     repo = "firmware";
     rev = firmwareVersion;
-    hash = "sha256-NCW3t4KFNqApDt+3b7xKPa2ZmyJ8/i+e8K7h4JpH0mA=";
+    hash = "sha256-PlHJAEAi1Hmcac5rBGLQVIo6SzR2bf8T2ghwfUXmF+w=";
   };
 in
 stdenvNoCC.mkDerivation {
