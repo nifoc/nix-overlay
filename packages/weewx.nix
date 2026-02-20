@@ -1,63 +1,49 @@
 {
-  pkgs,
-  lib,
-  poetry2nix,
-  python,
-  # build
-  cachecontrol,
-  cleo,
-  crashtest,
-  dulwich,
-  fastjsonschema,
-  keyring,
-  pexpect,
-  pkginfo,
-  platformdirs,
-  requests-toolbelt,
-  shellingham,
-  tomlkit,
-  trove-classifiers,
-  virtualenv,
+  buildPythonApplication,
+  fetchFromGitHub,
+  fetchurl,
+  # dependencies
+  cheetah3,
+  configobj,
+  ephem,
+  pillow,
+  poetry-core,
+  pymysql,
+  pyserial,
+  pyusb,
+  unzip,
   xattr,
-  # runtime
   paho-mqtt,
   requests,
 }:
 
 let
-  weewx = pkgs.fetchFromGitHub {
-    owner = "weewx";
-    repo = "weewx";
-    rev = "v5.1.0";
-    hash = "sha256-o1Dyo0SBUO29w7rOlxV31S2xda0m1KiCjPMQQm1uEu4=";
-  };
-
-  plugin-weewx-mqtt = pkgs.fetchurl {
+  plugin-weewx-mqtt = fetchurl {
     url = "https://github.com/matthewwall/weewx-mqtt/archive/d1739f3d57f07f402ddd3c20ac10ad5f874be1e9.zip";
     hash = "sha256-mNfZlrJPCo/vD5Dgt8PYa6ZHN+rTqqIA6c7MozY9Vss=";
   };
 
-  plugin-weewx-mqtt-subscribe = pkgs.fetchurl {
+  plugin-weewx-mqtt-subscribe = fetchurl {
     url = "https://github.com/bellrichm/weewx-mqttsubscribe/archive/refs/tags/v3.0.0.zip";
     hash = "sha256-izhEsOeRlg6wvwKnZnmHW+a/Y2eD1fsXwoBujoVaXAw=";
   };
 
-  plugin-weewx-xaggs = pkgs.fetchurl {
+  plugin-weewx-xaggs = fetchurl {
     url = "https://github.com/tkeffer/weewx-xaggs/archive/5d11e149f96a98fe0518b9feb4ddc8a0d461db63.zip";
     hash = "sha256-lHg+/3l60wqV0r+9BHMtzuDQsrVJFP/Ql2XAHjp0UM4=";
   };
 
-  plugin-weewx-gts = pkgs.fetchurl {
+  plugin-weewx-gts = fetchurl {
     url = "https://github.com/roe-dl/weewx-GTS/archive/7a92c51572ec461a174b61ffbc665036e3cfcf61.zip";
     hash = "sha256-/SDCmP785JOwI+/8AHJ9jhXmOarYWetb2Ruhm1f4b8Q=";
   };
 
-  plugin-weewx-purpleair = pkgs.fetchurl {
+  plugin-weewx-purpleair = fetchurl {
     url = "https://github.com/bakerkj/weewx-purpleair/archive/refs/tags/v0.9.zip";
     hash = "sha256-L7mzbsb/Ewzd6kCrceOESMzEJDLjshFohgVK2U5/ZsM=";
   };
 
-  plugin-weewx-wdc = pkgs.fetchurl {
+  plugin-weewx-wdc = fetchurl {
     url = "https://github.com/Daveiano/weewx-wdc/releases/download/v3.5.1/weewx-wdc-v3.5.1.zip";
     hash = "sha256-MPjh/a6+f668yfD5AyCWFmyD1Q5p8nxCzESOUKx7wkQ=";
   };
@@ -98,54 +84,35 @@ let
       weewx.units.obs_group_dict['homeEnergyActive'] = 'group_power'
     '';
 in
-poetry2nix.mkPoetryApplication {
-  inherit python;
-  projectDir = weewx;
+buildPythonApplication rec {
+  pname = "weewx";
+  version = "5.1.0";
+  pyproject = true;
 
-  overrides = poetry2nix.defaultPoetryOverrides.extend (
-    final: prev: {
-      ct3 = prev.ct3.overridePythonAttrs (old: {
-        buildInputs = (old.buildInputs or [ ]) ++ [ prev.setuptools ];
-      });
-
-      pillow = prev.pillow.overridePythonAttrs (old: {
-        postPatch = ''
-          echo "# AVIF_ROOT = None" >> setup.py
-        '';
-      });
-
-      pyserial = prev.pyserial.overridePythonAttrs (old: {
-        buildInputs = (old.buildInputs or [ ]) ++ [ prev.setuptools ];
-      });
-    }
-  );
+  src = fetchFromGitHub {
+    owner = "weewx";
+    repo = "weewx";
+    rev = "v${version}";
+    hash = "sha256-o1Dyo0SBUO29w7rOlxV31S2xda0m1KiCjPMQQm1uEu4=";
+  };
 
   nativeBuildInputs = [
-    # Poetry (?)
-    cachecontrol
-    cleo
-    crashtest
-    dulwich
-    fastjsonschema
-    keyring
-    pexpect
-    pkginfo
-    platformdirs
-    requests-toolbelt
-    shellingham
-    tomlkit
-    trove-classifiers
-    virtualenv
-    xattr
+    poetry-core
 
-    pkgs.poetry
-    pkgs.poetryPlugins.poetry-plugin-export
-    pkgs.unzip
+    unzip
+    xattr
   ];
 
   propagatedBuildInputs = [
+    cheetah3
+    configobj
+    ephem
     paho-mqtt
+    pillow
     requests
+    pymysql
+    pyserial
+    pyusb
   ];
 
   postPatch = ''
@@ -170,5 +137,7 @@ poetry2nix.mkPoetryApplication {
     cat << EOF > $out/home/weewx-data/bin/user/extensions.py
     ${custom-extensions}
     EOF
+
+    rm $out/home/weewx-data/weewx.conf.*
   '';
 }
