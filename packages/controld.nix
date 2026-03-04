@@ -2,16 +2,16 @@
 
 pkgs.buildGoModule rec {
   pname = "controld";
-  version = "1.4.9";
+  version = "1.5.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "Control-D-Inc";
     repo = "ctrld";
     rev = "v${version}";
-    hash = "sha256-DKnQ4xtn1XHeu+1fm6g/qRyS6twbChEsw17gz8mv1xU=";
+    hash = "sha256-KrkEI07wfddDGmor2VT3I5gGmeZX75UGLZl++a6sE+c=";
   };
 
-  vendorHash = "sha256-Wydxn7tRFU3SXdY3NIlI+Welwxs1UcNHzYz5AwDI/L8=";
+  vendorHash = "sha256-rsRlInNk6/C9DzJLbCoQSbV1exGfstbTxE8qitKmZ0c=";
 
   ldflags = [ "-s" "-w" "-X main.version=${version}" ];
   doCheck = false;
