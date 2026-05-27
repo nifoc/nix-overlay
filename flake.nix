@@ -45,7 +45,6 @@
               anonymous-overflow = callPackage ./packages/anonymous-overflow.nix { };
               bulk-downloader-for-reddit = callPythonPackage ./packages/bulk-downloader-for-reddit.nix { };
               cliclick = callPackage ./packages/cliclick.nix { };
-              controld = callPackage ./packages/controld.nix { };
               discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
               fedifetcher = callPythonPackage ./packages/fedifetcher.nix { };
               fennel-ls = callPackage ./packages/fennel-ls.nix { };

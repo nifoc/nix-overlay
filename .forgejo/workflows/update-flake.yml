@@ -22,7 +22,6 @@ jobs:
         nix-update --flake ai-robots-txt
         nix-update --flake anonymous-overflow
         nix-update --flake --version branch=development bulk-downloader-for-reddit
-        nix-update --flake controld
         nix-update --flake discord-downloader-go
         nix-update --flake fedifetcher
         #nix-update --flake octodns-desec
