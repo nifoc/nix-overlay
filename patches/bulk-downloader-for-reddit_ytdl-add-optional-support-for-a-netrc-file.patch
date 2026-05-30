@@ -22,6 +22,9 @@ Subject: [PATCH] feat(ytdl): add optional support for a netrc file
 +            ytdl_options["usenetrc"] = True
 +            ytdl_options["netrc_location"] = os.environ.get('YTDL_NETRC_LOCATION', '/etc/netrc')
 +
++        if 'YTDL_COOKIE_FILE' in os.environ:
++            ytdl_options["cookiefile"] = os.environ.get('YTDL_COOKIE_FILE', '/etc/yt-dlp-cookies.txt')
++
          def download(_: dict) -> bytes:
              with tempfile.TemporaryDirectory() as temp_dir:
                  download_path = Path(temp_dir).resolve()
