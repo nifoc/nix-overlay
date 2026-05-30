@@ -1,0 +1,25 @@
+Subject: [PATCH] feat(ytdl): add optional support for cookies and impersonate
+ chrome
+
+---
+ bdfr/site_downloaders/youtube.py | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/bdfr/site_downloaders/youtube.py b/bdfr/site_downloaders/youtube.py
+index 59b5400..4ee4877 100644
+--- a/bdfr/site_downloaders/youtube.py
++++ b/bdfr/site_downloaders/youtube.py
+@@ -43,6 +43,11 @@ class Youtube(BaseDownloader):
+             ytdl_options["usenetrc"] = True
+             ytdl_options["netrc_location"] = os.environ.get('YTDL_NETRC_LOCATION', '/etc/netrc')
+ 
++        if 'YTDL_COOKIE_FILE' in os.environ:
++            ytdl_options["cookiefile"] = os.environ.get('YTDL_COOKIE_FILE', '/etc/yt-dlp-cookies.txt')
++
++        ytdl_options["impersonate"] = "chrome"
++
+         def download(_: dict) -> bytes:
+             with tempfile.TemporaryDirectory() as temp_dir:
+                 download_path = Path(temp_dir).resolve()
+-- 
+2.53.0
