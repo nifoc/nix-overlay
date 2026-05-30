@@ -1,8 +1,8 @@
 Subject: [PATCH] feat(ytdl): add optional support for a netrc file
 
 ---
- bdfr/site_downloaders/youtube.py | 4 ++++
- 1 file changed, 4 insertions(+)
+ bdfr/site_downloaders/youtube.py | 7 ++++
+ 1 file changed, 7 insertions(+)
 
 --- a/bdfr/site_downloaders/youtube.py
 +++ b/bdfr/site_downloaders/youtube.py
@@ -14,7 +14,7 @@ Subject: [PATCH] feat(ytdl): add optional support for a netrc file
  import tempfile
  from collections.abc import Callable
  from pathlib import Path
-@@ -38,6 +38,10 @@ class Youtube(BaseDownloader):
+@@ -38,6 +38,13 @@ class Youtube(BaseDownloader):
          ytdl_options["quiet"] = True
          ytdl_options["logger"] = yt_logger
 
