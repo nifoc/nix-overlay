@@ -11,14 +11,14 @@
 
 buildPythonApplication rec {
   pname = "fedifetcher";
-  version = "7.1.21";
+  version = "8.0.0";
   format = "other";
 
   src = fetchFromGitHub {
     owner = "nanos";
     repo = "FediFetcher";
     tag = "v${version}";
-    hash = "sha256-Oet0k4sGy9VSdPQeDNt8hiMBYqGhiByHvDZulVfUTZg=";
+    hash = "sha256-1cLjNx4k5xWUE2Vg2qjlvFYHIW3BSSFuRGTbhS9+nMs=";
   };
 
   propagatedBuildInputs = [
