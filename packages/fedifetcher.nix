@@ -3,6 +3,7 @@
   fetchFromGitHub,
   stdenv,
   buildPythonApplication,
+  setuptools,
   defusedxml,
   python-dateutil,
   requests,
@@ -12,7 +13,7 @@
 buildPythonApplication rec {
   pname = "fedifetcher";
   version = "8.1.1";
-  format = "other";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "nanos";
@@ -21,18 +22,14 @@ buildPythonApplication rec {
     hash = "sha256-RjJzO1+6lbecv07AmBHqEfi0HMlAi576Xx5jw/Avh2E=";
   };
 
+  buildInputs = [ setuptools ];
+
   propagatedBuildInputs = [
     defusedxml
     python-dateutil
     requests
     xxhash
   ];
-
-  installPhase = ''
-    runHook preInstall
-    install -vD find_posts.py $out/bin/fedifetcher
-    runHook postInstall
-  '';
 
   checkPhase = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     runHook preCheck
