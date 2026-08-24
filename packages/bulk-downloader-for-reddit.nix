@@ -1,6 +1,8 @@
 {
   pkgs,
   lib,
+  stdenv,
+  fetchpatch,
   buildPythonApplication,
   setuptools,
   wheel,
@@ -28,6 +30,21 @@ buildPythonApplication rec {
   };
 
   patches = [
+    (fetchpatch {
+      url = "https://github.com/Serene-Arc/bulk-downloader-for-reddit/pull/783.patch";
+      hash = "sha256-USc4k7RMRun2Cl/AW7RVBdOZYJytITM4YVEEHBPBJqE=";
+    })
+
+    (fetchpatch {
+      url = "https://github.com/Serene-Arc/bulk-downloader-for-reddit/pull/1011.patch";
+      hash = "sha256-P8TYR7Kkh6MGqPGzj5UQ3UIoRJJhfGPsdTzY7P9fmdw=";
+    })
+
+    (fetchpatch {
+      url = "https://github.com/Serene-Arc/bulk-downloader-for-reddit/pull/1012.diff";
+      hash = "sha256-ko+2xuzgurdMSC+5TgF5kRqXkXmnYziN1Zu7OnoukTU=";
+    })
+
     ../patches/bulk-downloader-for-reddit_recursion-limit.patch
     ../patches/bulk-downloader-for-reddit_imgur-headers.patch
     ../patches/bulk-downloader-for-reddit_imgur-album-images-none.patch
@@ -41,35 +58,23 @@ buildPythonApplication rec {
     wheel
   ];
 
-  propagatedBuildInputs =
-    let
-      praw-old = praw.overrideAttrs (
-        _: previousAttrs: {
-          version = "7.7.1";
-          pyproject = true;
+  propagatedBuildInputs = [
+    appdirs
+    beautifulsoup4
+    cachetools
+    click
+    dict2xml
+    praw
+    pyyaml
+    requests
+    yt-dlp
 
-          nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ setuptools ];
+    pkgs.ffmpeg-headless
+  ];
 
-          src = pkgs.fetchFromGitHub {
-            owner = "praw-dev";
-            repo = previousAttrs.pname;
-            rev = "refs/tags/v${version}";
-            hash = "sha256-L7wTHD/ypXVc8GMfl9u16VNb9caLJoXpaMEIzaVVUgo=";
-          };
-        }
-      );
-    in
-    [
-      appdirs
-      beautifulsoup4
-      cachetools
-      click
-      dict2xml
-      praw-old
-      pyyaml
-      requests
-      yt-dlp
-
-      pkgs.ffmpeg-headless
-    ];
+  checkPhase = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+    runHook preCheck
+    $out/bin/bdfr --help>/dev/null
+    runHook postCheck
+  '';
 }
