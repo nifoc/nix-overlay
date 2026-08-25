@@ -6,18 +6,18 @@ Subject: [PATCH] feat(ytdl): add optional support for cookies and impersonate
  1 file changed, 22 insertions(+), 5 deletions(-)
 
 diff --git a/bdfr/site_downloaders/youtube.py b/bdfr/site_downloaders/youtube.py
-index 59b5400..a1b6d04 100644
+index 59b5400..944430d 100644
 --- a/bdfr/site_downloaders/youtube.py
 +++ b/bdfr/site_downloaders/youtube.py
 @@ -43,6 +43,12 @@ class Youtube(BaseDownloader):
              ytdl_options["usenetrc"] = True
              ytdl_options["netrc_location"] = os.environ.get('YTDL_NETRC_LOCATION', '/etc/netrc')
-
+ 
 +        if 'YTDL_COOKIE_FILE' in os.environ:
 +            ytdl_options["cookiefile"] = os.environ.get('YTDL_COOKIE_FILE', '/etc/yt-dlp-cookies.txt')
 +
 +        if 'YTDL_IMPERSONATE' in os.environ:
-+            ytdl_options["impersonate"] = os.environ.get('YTDL_IMPERSONATE', 'chrome')
++            ytdl_options["impersonate"] = yt_dlp.networking.impersonate.ImpersonateTarget.from_str(os.environ.get('YTDL_IMPERSONATE', 'chrome'))
 +
          def download(_: dict) -> bytes:
              with tempfile.TemporaryDirectory() as temp_dir:
@@ -44,11 +44,11 @@ index 59b5400..a1b6d04 100644
 +            ytdl_options["cookiefile"] = os.environ.get('YTDL_COOKIE_FILE', '/etc/yt-dlp-cookies.txt')
 +
 +        if 'YTDL_IMPERSONATE' in os.environ:
-+            ytdl_options["impersonate"] = os.environ.get('YTDL_IMPERSONATE', 'chrome')
++            ytdl_options["impersonate"] = yt_dlp.networking.impersonate.ImpersonateTarget.from_str(os.environ.get('YTDL_IMPERSONATE', 'chrome'))
 +
 +        with yt_dlp.YoutubeDL(ytdl_options) as ydl:
              try:
                  result = ydl.extract_info(url, download=False)
              except Exception as e:
---
+-- 
 2.55.0
