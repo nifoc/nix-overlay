@@ -15,6 +15,8 @@
   pyyaml,
   requests,
   yt-dlp,
+  curl-cffi,
+  ffmpeg-headless,
 }:
 
 buildPythonApplication rec {
@@ -51,6 +53,7 @@ buildPythonApplication rec {
     ../patches/bulk-downloader-for-reddit_downloader-no-crash-on-chunkedencodingerror.patch
     ../patches/bulk-downloader-for-reddit_ytdl-add-optional-support-for-a-netrc-file.patch
     ../patches/bulk-downloader-for-reddit_ytdl-add-optional-support-for-cookies-and-imper.patch
+    ../patches/bulk-downloader-for-reddit_ytdl-add-cookie-netrc-and-impersonate-options-t.patch
   ];
 
   nativeBuildInputs = [
@@ -69,7 +72,8 @@ buildPythonApplication rec {
     requests
     yt-dlp
 
-    pkgs.ffmpeg-headless
+    curl-cffi
+    ffmpeg-headless
   ];
 
   checkPhase = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''

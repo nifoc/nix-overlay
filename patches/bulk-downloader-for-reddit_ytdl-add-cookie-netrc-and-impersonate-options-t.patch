@@ -1,0 +1,40 @@
+Subject: [PATCH] feat(ytdl): add cookie, netrc and impersonate options to
+ extraction
+
+---
+ bdfr/site_downloaders/youtube.py | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
+
+diff --git a/bdfr/site_downloaders/youtube.py b/bdfr/site_downloaders/youtube.py
+index 4ee4877..1041b86 100644
+--- a/bdfr/site_downloaders/youtube.py
++++ b/bdfr/site_downloaders/youtube.py
+@@ -73,11 +73,21 @@ class Youtube(BaseDownloader):
+     def get_video_data(url: str) -> dict:
+         yt_logger = logging.getLogger("youtube-dl")
+         yt_logger.setLevel(logging.CRITICAL)
+-        with yt_dlp.YoutubeDL(
+-            {
+-                "logger": yt_logger,
+-            }
+-        ) as ydl:
++
++        ytdl_options = {
++            "logger": yt_logger,
++        }
++
++        if 'YTDL_NETRC_LOCATION' in os.environ:
++            ytdl_options["usenetrc"] = True
++            ytdl_options["netrc_location"] = os.environ.get('YTDL_NETRC_LOCATION', '/etc/netrc')
++
++        if 'YTDL_COOKIE_FILE' in os.environ:
++            ytdl_options["cookiefile"] = os.environ.get('YTDL_COOKIE_FILE', '/etc/yt-dlp-cookies.txt')
++
++        ytdl_options["impersonate"] = "chrome"
++
++        with yt_dlp.YoutubeDL(ytdl_options) as ydl:
+             try:
+                 result = ydl.extract_info(url, download=False)
+             except Exception as e:
+-- 
+2.55.0
