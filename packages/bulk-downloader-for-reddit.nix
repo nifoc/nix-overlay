@@ -53,7 +53,6 @@ buildPythonApplication rec {
     ../patches/bulk-downloader-for-reddit_downloader-no-crash-on-chunkedencodingerror.patch
     ../patches/bulk-downloader-for-reddit_ytdl-add-optional-support-for-a-netrc-file.patch
     ../patches/bulk-downloader-for-reddit_ytdl-add-optional-support-for-cookies-and-imper.patch
-    ../patches/bulk-downloader-for-reddit_ytdl-add-cookie-netrc-and-impersonate-options-t.patch
   ];
 
   nativeBuildInputs = [
