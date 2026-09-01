@@ -28,7 +28,7 @@ steps:
     image: docker.io/appleboy/drone-git-push
     settings:
       branch: master
-      remote: https://git.kempkens.io/daniel/nix-overlay.git
+      remote: ssh://forgejo@git.kempkens.io/daniel/nix-overlay.git
       commit: true
       commit_message: "chore(deps): update flake"
       author_name: Actions Bot
