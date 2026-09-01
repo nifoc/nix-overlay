@@ -1,0 +1,16 @@
+when:
+  - event: push
+    branch: master
+labels:
+  type: nix
+  arch: arm64
+steps:
+  - name: build
+    image: bash
+    commands:
+      - nix build '.#ai-robots-txt'
+      - nix build '.#fedifetcher'
+      - nix build '.#fennel-ls'
+      - nix build '.#q'
+      - nix build --fallback '.#weewx'
+      - nix build --fallback '.#weewx-proxy'

@@ -1,0 +1,37 @@
+when:
+  - event: cron
+    cron: update_flake
+  - event: manual
+labels:
+  type: podman
+clone:
+  git:
+    image: quay.io/woodpeckerci/plugin-git
+steps:
+  - name: update
+    image: ghcr.io/lix-project/lix:latest
+    commands:
+      - echo 'experimental-features = nix-command flakes flake-self-attrs' >> /etc/nix/nix.conf
+      - nix flake update
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake ai-robots-txt
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake anonymous-overflow
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake --version branch=development bulk-downloader-for-reddit
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake discord-downloader-go
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake fedifetcher
+      #- nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake octodns-desec
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake q
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake rift
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake --version branch slurp-gts
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake --version branch=main torrent-best-blocklist
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake vuetorrent
+  - name: push
+    image: docker.io/appleboy/drone-git-push
+    settings:
+      branch: master
+      remote: https://git.kempkens.io/daniel/nix-overlay.git
+      commit: true
+      commit_message: "chore(deps): update flake"
+      author_name: Actions Bot
+      author_email: daniel+actions-bot@kempkens.io
+      ssh_key:
+        from_secret: push_ssh_key

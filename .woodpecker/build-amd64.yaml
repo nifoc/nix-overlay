@@ -1,0 +1,16 @@
+when:
+  - event: push
+    branch: master
+labels:
+  type: nix
+  arch: amd64
+steps:
+  - name: build
+    image: bash
+    commands:
+      - nix build '.#ai-robots-txt'
+      - nix build '.#anonymous-overflow'
+      - nix build --fallback '.#bulk-downloader-for-reddit'
+      - nix build '.#fennel-ls'
+      - nix build '.#q'
+      - nix build '.#vuetorrent'
