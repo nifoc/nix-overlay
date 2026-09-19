@@ -7,16 +7,16 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "rift";
-  version = "0.5.9";
+  version = "0.5.10";
 
   src = fetchFromGitHub {
     owner = "acsandmann";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-tc0qf1xa9mK122DzC0amJuqL4TlB2YV1L5OyHz9tXzw=";
+    hash = "sha256-0dsM+PxcgE+cvNUF2C4EdRlrDG+R1aBY29/AAiNWUYo=";
   };
 
-  cargoHash = "sha256-GQCMxB1f2hMaHVeIdspqi8MiNOBrCwnB147zvvYREJE=";
+  cargoHash = "sha256-VQ0JtnfHjwDaki1J/z5q4CpE9TXsFdEIumA+jO3ziy4=";
 
   buildInputs = lib.optionals stdenv.isDarwin [
     apple-sdk_15
