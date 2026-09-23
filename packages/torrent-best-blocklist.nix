@@ -2,13 +2,13 @@
 
 pkgs.stdenvNoCC.mkDerivation {
   pname = "torrent-best-blocklist";
-  version = "1.1.4-unstable-2026-08-02";
+  version = "1.1.5-unstable-2026-09-22";
 
   src = pkgs.fetchFromGitHub {
     owner = "waelisa";
     repo = "Best-blocklist";
-    rev = "052c3e563b89a8fca193e4ee0d9ba1b52a673d51";
-    hash = "sha256-BwxAHykG0FcKYXXLh0D7wc73RD9SPq0a+Rb4uxMMvUc=";
+    rev = "c79d5e562f20b3017df8eb66e47283de1239844d";
+    hash = "sha256-WuYMQFGCaqOVteM5t4N+pXXuqv6gCBS2DYWy8irUQbM=";
   };
 
   buildInputs = with pkgs; [ unzip ];
