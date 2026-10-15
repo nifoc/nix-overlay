@@ -12,14 +12,14 @@
 
 buildPythonApplication rec {
   pname = "fedifetcher";
-  version = "8.2.2";
+  version = "8.2.3";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "nanos";
     repo = "FediFetcher";
     tag = "v${version}";
-    hash = "sha256-LmcBE+phqE7kuqqabunkP27GsgwrvG5Q61BBZuR4ROc=";
+    hash = "sha256-u+/thiltIimBz/uGMzirFik09X1P8bYjUfWEp3/6nmc=";
   };
 
   buildInputs = [ setuptools ];
