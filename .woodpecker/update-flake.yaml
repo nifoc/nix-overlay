@@ -16,6 +16,7 @@ steps:
       - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake ai-robots-txt
       - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake anonymous-overflow
       - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake --version branch=development bulk-downloader-for-reddit
+      - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake --version branch=master cfsolve
       - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake discord-downloader-go
       - nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake fedifetcher
       #- nix run 'nixpkgs#lixPackageSets.latest.nix-update' -- --flake octodns-desec

@@ -43,6 +43,7 @@
               ai-robots-txt = callPackage ./packages/ai-robots-txt.nix { };
               anonymous-overflow = callPackage ./packages/anonymous-overflow.nix { };
               bulk-downloader-for-reddit = callPythonPackage ./packages/bulk-downloader-for-reddit.nix { };
+              cfsolve = callPackage ./packages/cfsolve.nix { };
               cliclick = callPackage ./packages/cliclick.nix { };
               discord-downloader-go = callPackage ./packages/discord-downloader-go.nix { };
               fedifetcher = callPythonPackage ./packages/fedifetcher.nix { };
