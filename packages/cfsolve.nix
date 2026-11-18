@@ -7,13 +7,13 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "cfsolve";
-  version = "0-unstable-2026-11-13";
+  version = "0-unstable-2026-11-17";
 
   src = fetchFromGitHub {
     owner = "chris124567";
     repo = pname;
-    rev = "19efa31656328528457376ae0895a61164b22da0";
-    hash = "sha256-vaXvhG/hqfs87CVZGUs8uMPtu+hLUM5/yZfgkpfvsAw=";
+    rev = "06d58d64f1f2292e77341576d05b00af15d90960";
+    hash = "sha256-0BzgOLu+cf2qxP4BTYXfiRTl8vE5ubL3frDgStMJUKo=";
   };
 
   cargoHash = "sha256-TXZTAkiqxFMUX19C7R/rApPyaToHqIXrVTw15f7cK6w=";
